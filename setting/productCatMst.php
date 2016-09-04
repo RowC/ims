@@ -81,7 +81,7 @@ include '../config/datasource.php';
                                             <textarea name='pDescription[]' col="1" rows="1" id="pDescription_0" class="form-control"></textarea>
                                         </td>
                                         <td>
-                                            <input type="checkbox" name='active_list[]' id="isActive_0" value=''/>
+                                            <input type="checkbox" name='active_list[]' id="isActive_0" value='1'/>
                                         </td>
                                         <td>
                                             <div class="form-group">                   
@@ -163,7 +163,7 @@ include '../config/datasource.php';
                                 $('#addr' + i).html("<td>" + (i + 1) + "</td>\n\
 <td><input name='pName[]' id='pName_" + i + "' type='text'  class='form-control input-md'/></td>\n\
 <td><textarea col='1' rows='1' name='pDescription[]' id='pDescription_" + i + "' class='form-control input-md'></textarea></td>\n\
-<td><input type='checkbox' name='active_list[]' id='isActive_" + i + "' value=''/></td>\n\
+<td><input type='checkbox' name='active_list[]' id='isActive_" + i + "' value='1'/></td>\n\
 <td><div class='form-group'><div class ='col-lg-10 col-xs-10'><div class ='input-group'><span class ='input-group-btn'><span class = 'btn btn-info btn-file'>Browse...<input type ='file' id='picNames_" + i + "' name='productLogo[]' class ='fileName'></span></span><input type='text' class='form-control tf' readonly = 'readonly' id='picName_" + i + "' name='productLogo" + [] + "' placeholder='Browse your file' class='form-control input-sm'></div></div></div></td>\n\
 <td><span id = 'deleteRow_" + i + "' class = 'dlt btn' ><i class = 'fa fa-times' style = 'color:red;font-size:20px' ></i></span></td>");
                                 $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');

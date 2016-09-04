@@ -53,7 +53,12 @@ if (isset($_REQUEST)) {
             $sqlDtl = "INSERT INTO product_cat_dtl(product_name,product_description,is_active,product_cat_mst,product_logo_nm,logo_size,product_logo_path,create_date)values";
             for ($i = 0; $i < $number; $i++) {
                
-                $isActive = isset($_POST['active_list'][$i])? TRUE:FALSE;
+//                $isActive = isset($_POST['active_list'][$i]);
+//                echo "<pre>";
+//                print_r($isActive.'@'.$i);
+//                echo "</pre>";
+              //  echo ($isActive.'-@-'.$i);
+               
 //                $isActive = isset($_POST['active_list'][$i])? $_POST['active_list'][$i]:FALSE;
 //                echo $isActive.'-@'.$i;
                 // upload image
@@ -61,7 +66,12 @@ if (isset($_REQUEST)) {
             $tmp_dir= $_FILES['productLogo']['tmp_name'][$i];
             $imgSize = $_FILES['productLogo']['size'][$i];
            
-                if (trim($_POST['pName'][$i]) != '') {                   
+                if (trim($_POST['pName'][$i]) != '') {   
+                    if(!$_POST['active_list'][$i]){
+                        $isActive = 0;
+                    }  else {
+    $isActive = 1;
+}
 //                    $sqlDtl .= "('" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] ."','" .$isActive. "','$var','$product_image','$imgSize','$upload_dir',now()),";
                     $sqlDtl .= "('" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] ."','$isActive','$var','$product_image','$imgSize','$upload_dir',now()),";
                 }              
@@ -74,8 +84,6 @@ if (isset($_REQUEST)) {
             } else {
 //                    echo $sqlDtl;
 //                    echo "Record #" . ($i + 1) . "Saved <br/>";
-
-                echo  $isActive;               
                 echo 'Your message send successfully!!!!!';
                 echo '<script>window.open("productCatMst.php","_self")</script>'; //open targated page 
             }
