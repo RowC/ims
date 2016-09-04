@@ -42,33 +42,47 @@ if (isset($_REQUEST)) {
         if (!$insert_pro) {
             echo mysqli_error($conn);
             echo '<script>window.open("../index.php","_self")</script>';
+            return;
         }
-   
 
-    $number = count($_POST['pName']);
-    if ($number > 0) {
-       $sqlDtl = "INSERT INTO product_cat_dtl(product_name,product_description,is_active,product_cat_mst,create_date)values";
-        for ($i = 0; $i < $number; $i++) {
-             $isActive = isset($_POST["isActive"][$i]) ? $_POST["isActive"][$i]: 0;
-            if (trim($_POST['pName'][$i]) != '') {
-                $sqlDtl .= "('" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] . "','" . $isActive. "','$var',now()),";
-              
+
+        $number = count($_POST['pName']);
+        if ($number > 0) {
+            $upload_dir = '/dist/imgs/product_img/'; // upload directory   
+// $isActive = $_POST['active_list'];
+            $sqlDtl = "INSERT INTO product_cat_dtl(product_name,product_description,is_active,product_cat_mst,product_logo_nm,logo_size,product_logo_path,create_date)values";
+            for ($i = 0; $i < $number; $i++) {
+               
+                $isActive = isset($_POST['active_list'][$i])? TRUE:FALSE;
+//                $isActive = isset($_POST['active_list'][$i])? $_POST['active_list'][$i]:FALSE;
+//                echo $isActive.'-@'.$i;
+                // upload image
+            $product_image = $_FILES['productLogo']['name'][$i];
+            $tmp_dir= $_FILES['productLogo']['tmp_name'][$i];
+            $imgSize = $_FILES['productLogo']['size'][$i];
+           
+                if (trim($_POST['pName'][$i]) != '') {                   
+//                    $sqlDtl .= "('" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] ."','" .$isActive. "','$var','$product_image','$imgSize','$upload_dir',now()),";
+                    $sqlDtl .= "('" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] ."','$isActive','$var','$product_image','$imgSize','$upload_dir',now()),";
+                }              
+                move_uploaded_file($tmp_dir, '../webapp'.$upload_dir.$product_image);
             }
-        }
-        $sqlDtl = trim($sqlDtl,",");
-        $result =  mysqli_query($conn, $sqlDtl);
-                if(!$result) {
-                   echo mysqli_error($conn);
-                } else {
+            $sqlDtl = trim($sqlDtl, ",");
+            $result = mysqli_query($conn, $sqlDtl);
+            if (!$result) {
+                echo mysqli_error($conn);
+            } else {
 //                    echo $sqlDtl;
 //                    echo "Record #" . ($i + 1) . "Saved <br/>";
-                    echo 'Your message send successfully!!!!!';
-        echo '<script>window.open("productCatMst.php","_self")</script>'; //open targated page 
-                }
-    } else {
-        echo 'Please Enter Product Name';
+
+                echo  $isActive;               
+                echo 'Your message send successfully!!!!!';
+                echo '<script>window.open("productCatMst.php","_self")</script>'; //open targated page 
+            }
+        } else {
+            echo 'Please Enter Product Name';
+        }
     }
- }           
 }
 
 //    }
