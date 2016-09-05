@@ -59,9 +59,9 @@ include '../config/datasource.php';
                                         <th class="text-center">
                                             Product Description
                                         </th>
-                                        
+
                                         <th class="text-center">
-                                           Is Active?
+                                            Is Active?
                                         </th>
                                         <th class="text-center">
                                             Product Image
@@ -72,7 +72,7 @@ include '../config/datasource.php';
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+
                                     <tr id='addr0'>
                                         <td>
                                             1
@@ -138,8 +138,8 @@ include '../config/datasource.php';
 
 <script src="../webapp/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script type="text/javascript">
-    function sendFormData(){
-         var pct = $('#productCatTitle').val()
+                        function sendFormData() {
+                            var pct = $('#productCatTitle').val()
                             alert(pct)
 //                            var data = $('#myForm').serialize(); //this will select all the form data in the data variable.                                       
                             var data = new FormData($('#myForm')[0]); //this will select all the form data in the data variable.                                       
@@ -149,8 +149,8 @@ include '../config/datasource.php';
 //                                data: $('#productMst').serialize(),
                                 data: data,
                                 contentType: false,
-                                            cache: false,
-                                            processData: false,
+                                cache: false,
+                                processData: false,
                                 success: function (data)
                                 {
                                     alert(data)
@@ -159,35 +159,22 @@ include '../config/datasource.php';
                                 }
 
                             });
-    }
+                        }
                         $(document).ready(function () {
-                             $(".fileName").change(function () {
-                                    var id = this.id;
-                                    var value = this.value;
+                            $(".fileName").change(function () {
+                                var id = this.id;
+                                var value = this.value;
 
-                                    var idSegments = id.split("_");
-                                    var rowId = idSegments[1];
-                                    if (value) {
-                                        $("#picName_" + rowId).val(value);
-                                    }
-                                });
-                                
-//                            $(".checkedVal").change(function () {
-//                                var id = this.id;
-//                                var value = this.value;
-//                                // alert(value)
-//                                var idSegments = id.split("_");
-//                                var rowId = idSegments[1];
-//                                if (value==2) {
-//                                    $("#isActive_" + rowId).val(3);
-//                                }else if(value==3){
-//                                   $("#isActive_" + rowId).val(2); 
-//                                }
-//                            });
+                                var idSegments = id.split("_");
+                                var rowId = idSegments[1];
+                                if (value) {
+                                    $("#picName_" + rowId).val(value);
+                                }
+                            });
                             var i = 1;
                             $("#add_row").click(function () {
                                 $('#addr' + i).html("<td>" + (i + 1) + "</td>\n\
-<td><select id='ietm_"+i+"' name='item["+i+"]' class='form-control'>\n\
+<td><select id='ietm_" + i + "' name='item[" + i + "]' class='form-control'>\n\
 <option value=''>Select One</option>\n\
 <option value='1'>Item 1</option>\n\
 <option value='2'>Item 2</option>\n\
@@ -195,8 +182,8 @@ include '../config/datasource.php';
 </select></td>\n\
 <td><input name='pName[]' id='pName_" + i + "' type='text'  class='form-control input-md'/></td>\n\
 <td><textarea col='1' rows='1' name='pDescription[]' id='pDescription_" + i + "' class='form-control input-md'></textarea></td>\n\
-<td><input type='checkbox' name='activeList["+i+"]' id='isActive_" + i + "' class='checkedVal' value='1'/></td>\n\
-<td><div class='form-group'><div class ='col-lg-10 col-xs-10'><div class ='input-group'><span class ='input-group-btn'><span class = 'btn btn-info btn-file'>Browse...<input type ='file' id='picNames_" + i + "' name='productLogo["+i+"]' class ='fileName'></span></span><input type='text' class='form-control tf' readonly = 'readonly' id='picName_" + i + "' name='productLogo["+i+"]' placeholder='Browse your file' class='form-control input-sm'></div></div></div></td>\n\
+<td><input type='checkbox' name='activeList[" + i + "]' id='isActive_" + i + "' class='checkedVal' value='1'/></td>\n\
+<td><div class='form-group'><div class ='col-lg-10 col-xs-10'><div class ='input-group'><span class ='input-group-btn'><span class = 'btn btn-info btn-file'>Browse...<input type ='file' id='picNames_" + i + "' name='productLogo[" + i + "]' class ='fileName'></span></span><input type='text' class='form-control tf' readonly = 'readonly' id='picName_" + i + "' name='productLogo[" + i + "]' placeholder='Browse your file' class='form-control input-sm'></div></div></div></td>\n\
 <td><span id = 'deleteRow_" + i + "' class = 'dlt btn' ><i class = 'fa fa-times' style = 'color:red;font-size:20px' ></i></span></td>");
                                 $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
                                 i++;
@@ -212,20 +199,6 @@ include '../config/datasource.php';
                                         $("#picName_" + rowId).val(value);
                                     }
                                 });
-                                
-//                                 $(".checkedVal").change(function () {
-//                                var id = this.id;
-//                                var value = this.value;
-//                                //alert(value)
-//                                var idSegments = id.split("_");
-//                                var rowId = idSegments[1];
-//                                 if (value==2) {
-//                                    $("#isActive_" + rowId).val(3);
-//                                }else if(value==3){
-//                                   $("#isActive_" + rowId).val(2); 
-//                                }
-//                            });
-
                             });
 //                        $("#deleteRow").click(function () {
 //                            if (i > 1) {

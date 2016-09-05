@@ -1,5 +1,4 @@
 <?php
-
 include '../config/datasource.php';
 //echo '<script><alert("' . $_POST['productCatTitle'] . '")</script>';
 
