@@ -81,7 +81,7 @@ include '../config/datasource.php';
                                             <textarea name='pDescription[]' col="1" rows="1" id="pDescription_0" class="form-control"></textarea>
                                         </td>
                                         <td>
-                                            <input type="checkbox" name='active_list[]' id="isActive_0" value='1'/>
+                                            <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal" value='1'/>
                                         </td>
                                         <td>
                                             <div class="form-group">                   
@@ -90,12 +90,12 @@ include '../config/datasource.php';
                                                         <span class="input-group-btn">
                                                             <span class="btn btn-info btn-file">
                                                                 Browse...
-                                                                <input type="file" id="picNames_0" name="productLogo[]"
+                                                                <input type="file" id="picNames_0" name="productLogo[0]"
                                                                        class="fileName" onchange="getFileName(this.id)">
                                                             </span>
                                                         </span>
                                                         <input type="text" class="form-control tf" readonly="readonly" id="picName_0"
-                                                               name="productLogo[]"
+                                                               name="productLogo[0]"
                                                                placeholder ="Browse your file" class="form-control input-sm">
 
                                                     </div>
@@ -144,27 +144,42 @@ include '../config/datasource.php';
                                 {
                                     alert(data)
                                     $('#myForm')[0].reset();
+                                    $('.checkedVal').val(2);
                                 }
 
                             });
     }
                         $(document).ready(function () {
-                            $(".fileName").change(function () {
-                                var id = this.id;
-                                var value = this.value;
-                                var idSegments = id.split("_");
-                                var rowId = idSegments[1];
-                                if (value) {
-                                    $("#picName_" + rowId).val(value);
-                                }
-                            });
+                             $(".fileName").change(function () {
+                                    var id = this.id;
+                                    var value = this.value;
+
+                                    var idSegments = id.split("_");
+                                    var rowId = idSegments[1];
+                                    if (value) {
+                                        $("#picName_" + rowId).val(value);
+                                    }
+                                });
+                                
+//                            $(".checkedVal").change(function () {
+//                                var id = this.id;
+//                                var value = this.value;
+//                                // alert(value)
+//                                var idSegments = id.split("_");
+//                                var rowId = idSegments[1];
+//                                if (value==2) {
+//                                    $("#isActive_" + rowId).val(3);
+//                                }else if(value==3){
+//                                   $("#isActive_" + rowId).val(2); 
+//                                }
+//                            });
                             var i = 1;
                             $("#add_row").click(function () {
                                 $('#addr' + i).html("<td>" + (i + 1) + "</td>\n\
 <td><input name='pName[]' id='pName_" + i + "' type='text'  class='form-control input-md'/></td>\n\
 <td><textarea col='1' rows='1' name='pDescription[]' id='pDescription_" + i + "' class='form-control input-md'></textarea></td>\n\
-<td><input type='checkbox' name='active_list[]' id='isActive_" + i + "' value='1'/></td>\n\
-<td><div class='form-group'><div class ='col-lg-10 col-xs-10'><div class ='input-group'><span class ='input-group-btn'><span class = 'btn btn-info btn-file'>Browse...<input type ='file' id='picNames_" + i + "' name='productLogo[]' class ='fileName'></span></span><input type='text' class='form-control tf' readonly = 'readonly' id='picName_" + i + "' name='productLogo" + [] + "' placeholder='Browse your file' class='form-control input-sm'></div></div></div></td>\n\
+<td><input type='checkbox' name='activeList["+i+"]' id='isActive_" + i + "' class='checkedVal' value='1'/></td>\n\
+<td><div class='form-group'><div class ='col-lg-10 col-xs-10'><div class ='input-group'><span class ='input-group-btn'><span class = 'btn btn-info btn-file'>Browse...<input type ='file' id='picNames_" + i + "' name='productLogo["+i+"]' class ='fileName'></span></span><input type='text' class='form-control tf' readonly = 'readonly' id='picName_" + i + "' name='productLogo["+i+"]' placeholder='Browse your file' class='form-control input-sm'></div></div></div></td>\n\
 <td><span id = 'deleteRow_" + i + "' class = 'dlt btn' ><i class = 'fa fa-times' style = 'color:red;font-size:20px' ></i></span></td>");
                                 $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
                                 i++;
@@ -180,6 +195,19 @@ include '../config/datasource.php';
                                         $("#picName_" + rowId).val(value);
                                     }
                                 });
+                                
+//                                 $(".checkedVal").change(function () {
+//                                var id = this.id;
+//                                var value = this.value;
+//                                //alert(value)
+//                                var idSegments = id.split("_");
+//                                var rowId = idSegments[1];
+//                                 if (value==2) {
+//                                    $("#isActive_" + rowId).val(3);
+//                                }else if(value==3){
+//                                   $("#isActive_" + rowId).val(2); 
+//                                }
+//                            });
 
                             });
 //                        $("#deleteRow").click(function () {

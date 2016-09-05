@@ -48,34 +48,26 @@ if (isset($_REQUEST)) {
 
         $number = count($_POST['pName']);
         if ($number > 0) {
-            $upload_dir = '/dist/imgs/product_img/'; // upload directory   
-// $isActive = $_POST['active_list'];
+            $file_dir = '/dist/imgs/product_img/'; // upload directory  
             $sqlDtl = "INSERT INTO product_cat_dtl(product_name,product_description,is_active,product_cat_mst,product_logo_nm,logo_size,product_logo_path,create_date)values";
             for ($i = 0; $i < $number; $i++) {
-               
-//                $isActive = isset($_POST['active_list'][$i]);
-//                echo "<pre>";
-//                print_r($isActive.'@'.$i);
-//                echo "</pre>";
-              //  echo ($isActive.'-@-'.$i);
-               
-//                $isActive = isset($_POST['active_list'][$i])? $_POST['active_list'][$i]:FALSE;
-//                echo $isActive.'-@'.$i;
                 // upload image
-            $product_image = $_FILES['productLogo']['name'][$i];
-            $tmp_dir= $_FILES['productLogo']['tmp_name'][$i];
-            $imgSize = $_FILES['productLogo']['size'][$i];
-           
-                if (trim($_POST['pName'][$i]) != '') {   
-                    if(!$_POST['active_list'][$i]){
-                        $isActive = 0;
-                    }  else {
-    $isActive = 1;
-}
+                $product_image = $_FILES['productLogo']['name'][$i];
+                $tmp_dir = $_FILES['productLogo']['tmp_name'][$i];
+                $imgSize = $_FILES['productLogo']['size'][$i];
+                $isActive = isset($_POST["activeList"][$i]) ? $_POST["activeList"][$i] : 0;
+                if (trim($_POST['pName'][$i]) != '') {
+                    if ($product_image) {
+                        $upload_dir[$i] = '/dist/imgs/product_img/';
+                        echo '$upload_dir'.$upload_dir[$i]."@@@@".$i;
+                    } else {
+                        $upload_dir[$i] = '';
+                    }
+
 //                    $sqlDtl .= "('" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] ."','" .$isActive. "','$var','$product_image','$imgSize','$upload_dir',now()),";
-                    $sqlDtl .= "('" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] ."','$isActive','$var','$product_image','$imgSize','$upload_dir',now()),";
-                }              
-                move_uploaded_file($tmp_dir, '../webapp'.$upload_dir.$product_image);
+                    $sqlDtl .= "('" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] . "','$isActive','$var','$product_image','$imgSize','$upload_dir[$i]',now()),";
+                }
+                move_uploaded_file($tmp_dir, '../webapp' . $file_dir . $product_image);
             }
             $sqlDtl = trim($sqlDtl, ",");
             $result = mysqli_query($conn, $sqlDtl);
