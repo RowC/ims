@@ -49,7 +49,7 @@ if (isset($_REQUEST)) {
         $number = count($_POST['pName']);
         if ($number > 0) {
             $file_dir = '/dist/imgs/product_img/'; // upload directory  
-            $sqlDtl = "INSERT INTO product_cat_dtl(product_name,product_description,is_active,product_cat_mst,product_logo_nm,logo_size,product_logo_path,create_date)values";
+            $sqlDtl = "INSERT INTO product_cat_dtl(item_id,product_name,product_description,is_active,product_cat_mst,product_logo_nm,logo_size,product_logo_path,create_date)values";
             for ($i = 0; $i < $number; $i++) {
                 // upload image
                 $product_image = $_FILES['productLogo']['name'][$i];
@@ -65,7 +65,7 @@ if (isset($_REQUEST)) {
                     }
 
 //                    $sqlDtl .= "('" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] ."','" .$isActive. "','$var','$product_image','$imgSize','$upload_dir',now()),";
-                    $sqlDtl .= "('" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] . "','$isActive','$var','$product_image','$imgSize','$upload_dir[$i]',now()),";
+                    $sqlDtl .= "('" . $_POST['item'][$i] . "','" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] . "','$isActive','$var','$product_image','$imgSize','$upload_dir[$i]',now()),";
                 }
                 move_uploaded_file($tmp_dir, '../webapp' . $file_dir . $product_image);
             }

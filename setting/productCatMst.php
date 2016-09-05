@@ -51,6 +51,9 @@ include '../config/datasource.php';
                                             #
                                         </th>
                                         <th class="text-center">
+                                            Item
+                                        </th> 
+                                        <th class="text-center">
                                             Product Name
                                         </th>
                                         <th class="text-center">
@@ -73,6 +76,14 @@ include '../config/datasource.php';
                                     <tr id='addr0'>
                                         <td>
                                             1
+                                        </td>
+                                        <td>
+                                            <select id="ietm_0" name="item[0]" class="form-control">
+                                                <option value="">Select One</option>
+                                                <option value="1">Item 1</option>
+                                                <option value="2">Item 2</option>
+                                                <option value="3">Item 3</option>
+                                            </select>
                                         </td>
                                         <td>
                                             <input type="text" name='pName[]' id="pName_0"  class="form-control"/>
@@ -176,6 +187,12 @@ include '../config/datasource.php';
                             var i = 1;
                             $("#add_row").click(function () {
                                 $('#addr' + i).html("<td>" + (i + 1) + "</td>\n\
+<td><select id='ietm_"+i+"' name='item["+i+"]' class='form-control'>\n\
+<option value=''>Select One</option>\n\
+<option value='1'>Item 1</option>\n\
+<option value='2'>Item 2</option>\n\
+<option value='3'>Item 3</option>\n\
+</select></td>\n\
 <td><input name='pName[]' id='pName_" + i + "' type='text'  class='form-control input-md'/></td>\n\
 <td><textarea col='1' rows='1' name='pDescription[]' id='pDescription_" + i + "' class='form-control input-md'></textarea></td>\n\
 <td><input type='checkbox' name='activeList["+i+"]' id='isActive_" + i + "' class='checkedVal' value='1'/></td>\n\
