@@ -358,8 +358,8 @@ and open the template in the editor.
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
+                                <li><a href="dynamicTable.php"><i class="fa fa-circle-o"></i>D Table One</a></li>
+                                <li><a href="dynamicTableTwo.php"><i class="fa fa-circle-o"></i>D Table Two</a></li>
                                 <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
                                 <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
                             </ul>
