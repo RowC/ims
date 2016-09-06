@@ -155,7 +155,7 @@ include '../config/datasource.php';
                                 {
                                     alert(data)
                                     $('#myForm')[0].reset();
-                                    $('.checkedVal').val(2);
+                                    $('.checkedVal').val(0);
                                 }
 
                             });
