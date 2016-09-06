@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/ims/index.php</file>
-            <file>file:/C:/xampp/htdocs/ims/config/datasource.php</file>
-            <file>file:/C:/xampp/htdocs/ims/setting/productFile.php</file>
-            <file>file:/C:/xampp/htdocs/ims/setting/productCatMst.php</file>
-            <file>file:/C:/xampp/htdocs/ims/setting/adminDashboard.php</file>
+            <file>file:/C:/xampp/htdocs/ims/trunk/setting/productFile.php</file>
+            <file>file:/C:/xampp/htdocs/ims/trunk/setting/dynamicTable.php</file>
+            <file>file:/C:/xampp/htdocs/ims/trunk/headerMenu.php</file>
+            <file>file:/C:/xampp/htdocs/ims/trunk/setting/dynamicTableTwo.php</file>
+            <file>file:/C:/xampp/htdocs/ims/trunk/setting/productCatMst.php</file>
         </group>
     </open-files>
 </project-private>
