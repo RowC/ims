@@ -1,5 +1,6 @@
 <?php
 include '../headerMenu.php';
+include '../config/datasource.php';
 ?>
 
 <div class="content-wrapper">
@@ -10,7 +11,7 @@ include '../headerMenu.php';
         </h1>
         <ol class="breadcrumb">
             <li><a href="../index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="productCatMst.php"><i class="fa fa-dashboard"></i>Product List</a></li>
+            <li><a href="productCatMstList.php"><i class="fa fa-dashboard"></i>Product List</a></li>
             <!--<li class="active">Dashboard</li>-->
         </ol>
     </section>
@@ -54,52 +55,125 @@ include '../headerMenu.php';
                             </tr>
                         </thead>
                         <tbody>
-                            <tr id='addr0' class="aa">
-                                <td>
-                                    <select id="ietm_0" name="item[0]" class="selectBox">
-                                        <option value="">Select One</option>
-                                        <option value="1">Item 1</option>
-                                        <option value="2">Item 2</option>
-                                        <option value="3">Item 3</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input type="text" name='pName[]' id="pName_0"  class="form-control" value=""/>
-                                </td>
-                                <td>
-                                    <textarea name='pDescription[]' cols="50" rows="1" id="pDescription_0" class="borderColor"></textarea>
-                                </td>
-                                <td>
-                                    <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal borderColor" value='1'/>
-                                </td>
-                                <td>
-                                    <input type="radio" name='radioBtn[0]' id="redioBtnIn_0" class="radioBtnClass"  value="in" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;IN</label><br/>
-                                    <input type="radio" name='radioBtn[0]' id="redioBtnOut_0" class="radioBtnClass"  value="out" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;OUT</label>
-                                </td>
-                                <td>
-                                    <div class="form-group">                   
-                                        <div class="col-lg-10 col-xs-10">
-                                            <div class="input-group">
-                                                <span class="input-group-btn">
-                                                    <span class="btn btn-info btn-file">
-                                                    <!--<span class="myBtn">-->
-                                                        <label>Browse...</label>                                                        
-                                                        <input type="file" id="picNames_0" name="productLogo[0]"
-                                                               class="fileName" onchange="changeFileName(this.id)">
-                                                    </span>
-                                                </span>
-                                                <input type="text" class="form-control tf" readonly="readonly" id="picName_0"
-                                                       name="productLogo[0]"
-                                                       placeholder ="Browse your file" class="form-control input-sm">
+                            <?php
+                            if (isset($_GET['id'])) {
+                                $id = $_GET['id'];
+                                echo "PCM ID PK" . $id . "<br/>";
+                                ?> 
+                                <!--******while start*******-->
+                                <?php
+                                $sqlDtl = "select * from product_cat_dtl where product_cat_mst='" . $id . "'";
+                                echo "PCM ID" . $id . "<br/>";
+                                echo $sqlDtl;
+                                $resultDtl = mysqli_query($conn, $sqlDtl);
+                                $rowDtl = mysqli_fetch_array($resultDtl);
+                                $rowDtl = mysqli_fetch_array($resultDtl)
+                                        for($i=0;$i<=$rowDtl;$i++){
+//                                while ($rowDtl = mysqli_fetch_array($resultDtl)) { // start while                                
+                                    ?>
 
+
+                                    <tr id='addr0' class="aa">
+                                        <td>
+                                            <select id="ietm_0" name="item[0]" class="selectBox">
+                                                <option value="">Select One</option>
+                                                <option value="1">Item 1</option>
+                                                <option value="2">Item 2</option>
+                                                <option value="3">Item 3</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" name='pName[]' id="pName_0"  class="form-control" value="//<?php echo $rowDtl['product_name']; ?>"/>
+                                        </td>
+                                        <td>
+                                            <textarea name='pDescription[]' cols="50" rows="1" id="pDescription_0" class="borderColor">//<?php echo $rowDtl['product_description']; ?></textarea>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal borderColor" value='1'/>
+                                        </td>
+                                        <td>
+                                            <input type="radio" name='radioBtn[0]' id="redioBtnIn_0" class="radioBtnClass"  value="in" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;IN</label><br/>
+                                            <input type="radio" name='radioBtn[0]' id="redioBtnOut_0" class="radioBtnClass"  value="out" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;OUT</label>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">                   
+                                                <div class="col-lg-10 col-xs-10">
+                                                    <div class="input-group">
+                                                        <span class="input-group-btn">
+                                                            <span class="btn btn-info btn-file">
+                                                            <!--<span class="myBtn">-->
+                                                                <label>Browse...</label>                                                        
+                                                                <input type="file" id="picNames_0" name="productLogo[0]"
+                                                                       class="fileName" onchange="changeFileName(this.id)">
+                                                            </span>
+                                                        </span>
+                                                        <input type="text" class="form-control tf" readonly="readonly" id="picName_0"
+                                                               name="productLogo[0]"
+                                                               placeholder ="Browse your file" class="form-control input-sm" value="//<?php echo $rowDtl['product_logo_nm']; ?>">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>                                      
+                                        <span id = 'deleteRow_0' class = 'dlt btn'><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span> 
+                                      
+                                        </td>
+                                    </tr> 
+                                    <?php
+                                }; //end while
+                                ?> 
+                                <!--*****while end*****-->
+                            <?php } else {
+                                ?> <tr id='addr0' class="aa">
+                                    <td>
+                                        <select id="ietm_0" name="item[0]" class="selectBox">
+                                            <option value="">Select One</option>
+                                            <option value="1">Item 1</option>
+                                            <option value="2">Item 2</option>
+                                            <option value="3">Item 3</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" name='pName[]' id="pName_0"  class="form-control" value=""/>
+                                    </td>
+                                    <td>
+                                        <textarea name='pDescription[]' cols="50" rows="1" id="pDescription_0" class="borderColor"></textarea>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal borderColor" value='1'/>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name='radioBtn[0]' id="redioBtnIn_0" class="radioBtnClass"  value="in" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;IN</label><br/>
+                                        <input type="radio" name='radioBtn[0]' id="redioBtnOut_0" class="radioBtnClass"  value="out" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;OUT</label>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">                   
+                                            <div class="col-lg-10 col-xs-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-btn">
+                                                        <span class="btn btn-info btn-file">
+                                                        <!--<span class="myBtn">-->
+                                                            <label>Browse...</label>                                                        
+                                                            <input type="file" id="picNames_0" name="productLogo[0]"
+                                                                   class="fileName" onchange="changeFileName(this.id)">
+                                                        </span>
+                                                    </span>
+                                                    <input type="text" class="form-control tf" readonly="readonly" id="picName_0"
+                                                           name="productLogo[0]"
+                                                           placeholder ="Browse your file" class="form-control input-sm">
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <!--<span id = 'deleteRow_0' class = 'dlt btn' Style="display: none"><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span>-->
-                                </td>
-                            </tr> 
+                                    </td>
+                                    <td>
+                                        <!--<span id = 'deleteRow_0' class = 'dlt btn' Style = "display: none"><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span>--> 
+                                       
+                                    </td>
+                                </tr> 
+                            <?php } ?>
+
                         </tbody>
                     </table>
                     <br>

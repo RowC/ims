@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -406,7 +411,7 @@ th{
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="productCatMst.php"><i class="fa fa-circle-o"></i>Add Product</a></li>
-                                <li class=""><a href="productList.php"><i class="fa fa-circle-o"></i>Product List</a></li>
+                                <li class=""><a href="productCatMstList.php"><i class="fa fa-circle-o"></i>Product List</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
