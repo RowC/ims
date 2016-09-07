@@ -78,7 +78,7 @@ include '../config/datasource.php';
                                             1
                                         </td>
                                         <td>
-                                            <select id="ietm_0" name="item[0]" class="form-control">
+                                            <select id="ietm_0" name="item[0]" class="selectBox">
                                                 <option value="">Select One</option>
                                                 <option value="1">Item 1</option>
                                                 <option value="2">Item 2</option>
@@ -89,10 +89,10 @@ include '../config/datasource.php';
                                             <input type="text" name='pName[]' id="pName_0"  class="form-control"/>
                                         </td>
                                         <td>
-                                            <textarea name='pDescription[]' col="1" rows="1" id="pDescription_0" class="form-control"></textarea>
+                                            <textarea name='pDescription[]' col="1" rows="1" id="pDescription_0" class="borderColor"></textarea>
                                         </td>
                                         <td>
-                                            <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal" value='1'/>
+                                            <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal borderColor" value='1'/>
                                         </td>
                                         <td>
                                             <div class="form-group">                   
@@ -155,7 +155,7 @@ include '../config/datasource.php';
                                 {
                                     alert(data)
                                     $('#myForm')[0].reset();
-                                    $('.checkedVal').val(0);
+                                   // $('.checkedVal').val(0);
                                 }
 
                             });

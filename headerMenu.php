@@ -40,6 +40,66 @@ and open the template in the editor.
 .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
     background-color:  #466482 !important;
 }
+.form-control{
+    height: 25px !important;
+}
+.borderColor{
+    border: 1px solid #ccc;
+}
+.selectBox{
+    width: 100%;
+    height: 25px;
+    border: 1px solid #ccc;
+}
+/*.cbox{border:1px solid red;background:yellow;}*/
+/*  input[type="radio"], 
+input[type="checkbox"] {
+    border: 1px solid #ccc !important;
+    background: -webkit-linear-gradient(#FCFCFC, #DADADA);
+    -webkit-appearance: none;
+    -webkit-transition: box-shadow 200ms;
+    
+}*/
+input[type="radio"], 
+input[type="checkbox"] {
+    height: 10px
+}
+.btn{
+    padding: .5px 6px !important;
+}
+input[type="text"]
+{
+    font-size:10px;
+}
+select
+{
+    font-size:10px;
+}
+textarea
+{
+     /*width: 300px;*/
+ /*height: 100px;*/
+ /*background-color: yellow;*/
+ /*font-size: 1em;*/
+ /*font-weight: bold;*/
+ /*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+    font-size:10px;
+}
+label{
+  font-size:10px;  
+}
+ input[type="radio"],input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1); /* IE */
+  -moz-transform: scale(1); /* FF */
+  -webkit-transform: scale(1); /* Safari and Chrome */
+  -o-transform: scale(1); /* Opera */
+  padding: 10px;
+}
+th{
+  font-size:10px;  
+}
         </style>
     </head>
 

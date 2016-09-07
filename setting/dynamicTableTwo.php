@@ -24,7 +24,7 @@ include '../headerMenu.php';
                             <label class="col-md-3 control-label">
                                 Product Category Title
                             </label>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <input type="text" name="productCatTitle" id="productCatTitle" value="" class="form-control">
                             </div>
                         </div>                              
@@ -34,17 +34,15 @@ include '../headerMenu.php';
                             <label class="col-md-3 control-label">
                                 Product Category Keyword
                             </label>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <input type="text" name="productCatKeyword" id="productCatKeyword" value="" class="form-control">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="box-body">
-                    <p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
-
+                <div class="box-body"> 
                     <table id="myTable" class="table table-bordered table-striped QualificationRequirements">
-                        <thead class="bg-maroon-gradient ">
+                        <thead class="bg-olive ">
                             <tr>
                                 <th>Item</th>
                                 <th>Product Name</th>
@@ -58,7 +56,7 @@ include '../headerMenu.php';
                         <tbody>
                             <tr id='addr0' class="aa">
                                 <td>
-                                    <select id="ietm_0" name="item[0]" class="form-control">
+                                    <select id="ietm_0" name="item[0]" class="selectBox">
                                         <option value="">Select One</option>
                                         <option value="1">Item 1</option>
                                         <option value="2">Item 2</option>
@@ -66,17 +64,17 @@ include '../headerMenu.php';
                                     </select>
                                 </td>
                                 <td>
-                                    <input type="text" name='pName[]' id="pName_0"  class="form-control"/>
+                                    <input type="text" name='pName[]' id="pName_0"  class="form-control" value=""/>
                                 </td>
                                 <td>
-                                    <textarea name='pDescription[]' col="1" rows="1" id="pDescription_0" class="form-control"></textarea>
+                                    <textarea name='pDescription[]' cols="50" rows="1" id="pDescription_0" class="borderColor"></textarea>
                                 </td>
                                 <td>
-                                    <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal" value='1'/>
+                                    <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal borderColor" value='1'/>
                                 </td>
                                 <td>
-                                    <input type="radio" name='redioBtn[0]' id="redioBtn_0" class=""  value='in'>&nbsp;IN<br/>
-                                    <input type="radio" name='redioBtn[0]' id="redioBtn_0" class=""  value='out'>&nbsp;OUT
+                                    <input type="radio" name='radioBtn[0]' id="redioBtnIn_0" class="radioBtnClass"  value="in" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;IN</label><br/>
+                                    <input type="radio" name='radioBtn[0]' id="redioBtnOut_0" class="radioBtnClass"  value="out" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;OUT</label>
                                 </td>
                                 <td>
                                     <div class="form-group">                   
@@ -84,7 +82,8 @@ include '../headerMenu.php';
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-info btn-file">
-                                                        Browse...
+                                                    <!--<span class="myBtn">-->
+                                                        <label>Browse...</label>                                                        
                                                         <input type="file" id="picNames_0" name="productLogo[0]"
                                                                class="fileName" onchange="changeFileName(this.id)">
                                                     </span>
@@ -108,7 +107,7 @@ include '../headerMenu.php';
                 </div>
                 <div class="box-footer">
                     <!--<a id="add_row" class="btn btn-success pull-left">Add Row</a>-->
-                    <input type="button" name="save_product" value="Save Product" class="btn btn-success" onchange="sendFormData()">
+                    <input type="button" name="save_product" value="Save Product" class="btn btn-success" onclick="sendFormData()">
                     <!--<a id='deleteRow_' class="pull-right btn btn-danger">Delete Row</a>-->
                 </div><!-- /.box-footer -->
             </div>
@@ -120,6 +119,7 @@ include '../headerMenu.php';
 
                         function sendFormData() {
                             var pct = $('#productCatTitle').val()
+                            alert(pct)
                             var data = new FormData($('#myForm')[0]); //this will select all the form data in the data variable.                                       
                             $.ajax({
                                 url: "productFile.php",
@@ -130,10 +130,9 @@ include '../headerMenu.php';
                                 processData: false,
                                 success: function (data)
                                 {
+                                    alert(data)
                                     $('#myForm')[0].reset();
-                                    $('.checkedVal').val(0);
                                 }
-
                             });
                         }
 
@@ -147,7 +146,6 @@ include '../headerMenu.php';
                         }
 
                         $(document).on("click", ".addRow", function () {
-
                             var findPattern = /^(.*)(\d)+$/i;
                             var rowIndex = $(".QualificationRequirements tr").length - 1;
                             var cloneElement = ".QualificationRequirements tr:last";
@@ -166,14 +164,13 @@ include '../headerMenu.php';
 <span id = "deleteRow_' + rowIndex + '" class = "dlt btn" Style="display: block">\n\
 <i class = "fa fa-times" style = "color:red;font-size:20px"></i></span>');
                                         }
-                                        $(cloneElement).find('input').val('');
+                                        $(cloneElement).find('input[type="text"]').val('');
                                         $(cloneElement).find('textArea').val('');
                                         $(cloneElement).find('select').val('');
                                         $(cloneElement).find('input[type="checkbox"]').removeAttr('checked');
-                                        $(cloneElement).find('input[type="radio"]').removeAttr('checked');
-//                                       $(cloneElement).find("input:radio").removeAttr("checked");
-//                                        $(cloneElement).find('input:radio').prop('checked',false);
-//                                        $(cloneElement).find('input').prop('checked',false);
+//                                        $(cloneElement).find('input[type="radio"]').uncheckableRadio();
+//                                        $(cloneElement).find('input[type="radio"]').prop('checked',false);
+//                                        $('input[type=radio]').uncheckableRadio();
                                     });
 
                             rowIndex++;
