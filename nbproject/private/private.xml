@@ -4,9 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/ims/trunk/setting/productFile.php</file>
+            <file>file:/C:/xampp/htdocs/ims/trunk/setting/productCatMstList.php</file>
             <file>file:/C:/xampp/htdocs/ims/trunk/setting/dynamicTable.php</file>
             <file>file:/C:/xampp/htdocs/ims/trunk/headerMenu.php</file>
             <file>file:/C:/xampp/htdocs/ims/trunk/setting/dynamicTableTwo.php</file>
+            <file>file:/C:/xampp/htdocs/ims/trunk/setting/edit_product_cat_mst.php</file>
             <file>file:/C:/xampp/htdocs/ims/trunk/setting/productCatMst.php</file>
         </group>
     </open-files>
