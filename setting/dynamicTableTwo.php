@@ -66,10 +66,13 @@ include '../config/datasource.php';
                                 echo "PCM ID" . $id . "<br/>";
                                 echo $sqlDtl;
                                 $resultDtl = mysqli_query($conn, $sqlDtl);
-                                $rowDtl = mysqli_fetch_array($resultDtl);
-                                $rowDtl = mysqli_fetch_array($resultDtl)
-                                        for($i=0;$i<=$rowDtl;$i++){
-//                                while ($rowDtl = mysqli_fetch_array($resultDtl)) { // start while                                
+//                                $rowDtl = mysqli_fetch_array($resultDtl);
+//                                $rowDtl = mysqli_fetch_array($resultDtl)
+//                                        for($i=0;$i<$rowDtl;$i++){
+                                $i = 0;
+                                while ($rowDtl = mysqli_fetch_array($resultDtl)) { // start while   
+                                    $stockType = $rowDtl['stock_type'];
+                                    echo $stockType ;
                                     ?>
 
 
@@ -83,17 +86,17 @@ include '../config/datasource.php';
                                             </select>
                                         </td>
                                         <td>
-                                            <input type="text" name='pName[]' id="pName_0"  class="form-control" value="//<?php echo $rowDtl['product_name']; ?>"/>
+                                            <input type="text" name='pName[0]' id="pName_0"  class="form-control" value="<?php echo $rowDtl['product_name']; ?>"/>
                                         </td>
                                         <td>
-                                            <textarea name='pDescription[]' cols="50" rows="1" id="pDescription_0" class="borderColor">//<?php echo $rowDtl['product_description']; ?></textarea>
+                                            <textarea name='pDescription[0]' cols="50" rows="1" id="pDescription_0" class="borderColor"><?php echo $rowDtl['product_description']; ?></textarea>
                                         </td>
                                         <td>
-                                            <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal borderColor" value='1'/>
+                                            <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal borderColor" value='1'  <?php echo ($rowDtl['is_active']==1 ? 'checked' : '');?>/>
                                         </td>
                                         <td>
-                                            <input type="radio" name='radioBtn[0]' id="redioBtnIn_0" class="radioBtnClass"  value="in" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;IN</label><br/>
-                                            <input type="radio" name='radioBtn[0]' id="redioBtnOut_0" class="radioBtnClass"  value="out" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;OUT</label>
+                                            <input type="radio" name='radioBtn[0]' id="redioBtnIn_0" class="radioBtnClass"  value="in" <?php echo ($stockType=="in")? 'checked' : '' ?>/><label>&nbsp;IN</label><br/>
+                                            <input type="radio" name='radioBtn[0]' id="redioBtnOut_0" class="radioBtnClass"  value="out" <?php echo ($stockType=="out" ? 'checked' : '');?>/><label>&nbsp;OUT</label>
                                         </td>
                                         <td>
                                             <div class="form-group">                   
@@ -109,18 +112,19 @@ include '../config/datasource.php';
                                                         </span>
                                                         <input type="text" class="form-control tf" readonly="readonly" id="picName_0"
                                                                name="productLogo[0]"
-                                                               placeholder ="Browse your file" class="form-control input-sm" value="//<?php echo $rowDtl['product_logo_nm']; ?>">
+                                                               placeholder ="Browse your file" class="form-control input-sm" value="<?php echo $rowDtl['product_logo_nm']; ?>">
 
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>                                      
-                                        <span id = 'deleteRow_0' class = 'dlt btn'><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span> 
-                                      
+                                            <span id = 'deleteRow_0' class = 'dlt btn'><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span> 
+
                                         </td>
                                     </tr> 
                                     <?php
+                                    $i++;
                                 }; //end while
                                 ?> 
                                 <!--*****while end*****-->
@@ -141,7 +145,7 @@ include '../config/datasource.php';
                                         <textarea name='pDescription[]' cols="50" rows="1" id="pDescription_0" class="borderColor"></textarea>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal borderColor" value='1'/>
+                                        <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal borderColor" value="1"/>
                                     </td>
                                     <td>
                                         <input type="radio" name='radioBtn[0]' id="redioBtnIn_0" class="radioBtnClass"  value="in" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;IN</label><br/>
@@ -169,7 +173,7 @@ include '../config/datasource.php';
                                     </td>
                                     <td>
                                         <!--<span id = 'deleteRow_0' class = 'dlt btn' Style = "display: none"><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span>--> 
-                                       
+
                                     </td>
                                 </tr> 
                             <?php } ?>
