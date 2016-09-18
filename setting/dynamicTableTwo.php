@@ -194,7 +194,9 @@ include '../config/datasource.php';
 </div>
 <script src="../webapp/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script type="text/javascript">
-
+$(document).ready(function (){
+    $("#deleteRow_0").attr('Style', 'display: none;');
+});
                         function sendFormData() {
                             var pct = $('#productCatTitle').val()
                             alert(pct)
@@ -259,9 +261,21 @@ include '../config/datasource.php';
                             var id = this.id;
                             var idSegments = id.split("_");
                             var rowId = idSegments[1];
-                            var cloneElement = ".QualificationRequirements tr:last";
-                            if (rowId > 0) {
-                                $(cloneElement).remove();
+                             var rowIndex = $(".QualificationRequirements tr").length - 1;
+//                            var cloneElement = ".QualificationRequirements tr:last";
+                            var cloneElementId = $('#deleteRow_'+rowId);
+                            var cloneElement = $(".QualificationRequirements tbody tr td:last");
+                            alert(rowId+" rowId")
+                            alert("cloneElement  "+cloneElement)
+                            alert("rowIndex  "+rowIndex)
+                            if (rowId >0) {
+                                 //$(_this).closest(cloneElement).remove();
+//                                $(cloneElement).remove();
+//$("#myTable").deleteRow(rowId);
+ $(this).parents('tr').remove();
+//document.getElementById("myTable").deleteRow(rowId);
+//$("#deleteRow_0").attr('Style', 'display: none;');
+
                             }
                             $("#deleteRow_0").attr('Style', 'display: none;');
                         });
