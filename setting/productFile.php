@@ -3,7 +3,7 @@ include '../config/datasource.php';
 //echo '<script><alert("' . $_POST['productCatTitle'] . '")</script>';
 
 
-if (isset($_REQUEST)) {
+if (isset($_REQUEST) && $_POST['productCatid']==NULL) {
     $productCat = $_POST['productCatTitle'];
     $productCatKeyword = $_POST['productCatKeyword'];
 
@@ -81,5 +81,10 @@ if (isset($_REQUEST)) {
         }
     }
 }
+
+if(isset($_REQUEST) && $_POST['productCatid']=!NULL){
+    echo 'productCat id = '. $_POST['productCatid']; 
+}
+
 ?>
 

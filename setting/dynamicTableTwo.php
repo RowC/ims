@@ -20,7 +20,38 @@ include '../config/datasource.php';
         <form id="myForm" class="form-horizontal">
             <div class="box box-warning">
                 <div class="box-header">
+                    <?php
+                    if (isset($_GET['id'])) {
+                                $id = $_GET['id'];                              
+                                 $sqlMst = "select * from product_cat_mst where product_cat_mst_id='" . $id . "'";
+                                  $resultMst = mysqli_query($conn, $sqlMst);
+                                  $rowMst = mysqli_fetch_array($resultMst)
+                    ?>
+                    <input type="hidden" name="productCatid" id="productCatid" value="<?php echo $rowMst['id']; ?>" class="form-control">
                     <div class="row">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">
+                                Product Category Title
+                            </label>
+                            <div class="col-md-4">
+                                <input type="text" name="productCatTitle" id="productCatTitle" value="<?php echo $rowMst['category_title']; ?>" class="form-control">
+                            </div>
+                        </div>                              
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">
+                                Product Category Keyword
+                            </label>
+                            <div class="col-md-4">
+                                <input type="text" name="productCatKeyword" id="productCatKeyword" value="<?php echo $rowMst['category_keyword']; ?>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <?php } else {
+                                ?>
+                    <input type="hidden" name="productCatid" id="productCatid" value="" class="form-control">
+                       <div class="row">
                         <div class="form-group">
                             <label class="col-md-3 control-label">
                                 Product Category Title
@@ -40,6 +71,8 @@ include '../config/datasource.php';
                             </div>
                         </div>
                     </div>
+                      <?php } ?>
+                    
                 </div>
                 <div class="box-body"> 
                     <table id="myTable" class="table table-bordered table-striped QualificationRequirements">
@@ -60,7 +93,7 @@ include '../config/datasource.php';
                                 $id = $_GET['id'];
                                 echo "PCM ID PK" . $id . "<br/>";
                                 ?> 
-                                <!--******while start*******-->
+                                <!--******for loop start*******-->
                                 <?php
                                 $sqlDtl = "select * from product_cat_dtl where product_cat_mst='" . $id . "'";
                                 echo "PCM ID" . $id . "<br/>";
@@ -70,10 +103,10 @@ include '../config/datasource.php';
 //                                $rowDtl = mysqli_fetch_array($resultDtl)
 //                                        for($i=0;$i<$rowDtl;$i++){
                                 $i = 0;
-                                for($i=0;$i<($rowDtl = mysqli_fetch_array($resultDtl));$i++){  // start while   
+                                for ($i = 0; $i < ($rowDtl = mysqli_fetch_array($resultDtl)); $i++) {  // start while   
 //                                while ($rowDtl = mysqli_fetch_array($resultDtl)) { // start while   
                                     $stockType = $rowDtl['stock_type'];
-                                    echo $stockType ;
+                                    echo $stockType;
                                     ?>
 
 
@@ -87,17 +120,17 @@ include '../config/datasource.php';
                                             </select>
                                         </td>
                                         <td>
-                                            <input type="text" name='pName<?php echo $i?>' id="pName_<?php echo $i?>"  class="form-control" value="<?php echo $rowDtl['product_name']; ?>"/>
+                                            <input type="text" name='pName<?php echo $i ?>' id="pName_<?php echo $i ?>"  class="form-control" value="<?php echo $rowDtl['product_name']; ?>"/>
                                         </td>
                                         <td>
-                                            <textarea name='pDescription<?php echo $i?>' cols="50" rows="1" id="pDescription_<?php echo $i?>" class="borderColor"><?php echo $rowDtl['product_description']; ?></textarea>
+                                            <textarea name='pDescription<?php echo $i ?>' cols="50" rows="1" id="pDescription_<?php echo $i ?>" class="borderColor"><?php echo $rowDtl['product_description']; ?></textarea>
                                         </td>
                                         <td>
-                                            <input type="checkbox" name='activeList<?php echo $i?>' id="isActive_<?php echo $i?>" class="checkedVal borderColor" value='1'  <?php echo ($rowDtl['is_active']==1 ? 'checked' : '');?>/>
+                                            <input type="checkbox" name='activeList<?php echo $i ?>' id="isActive_<?php echo $i ?>" class="checkedVal borderColor" value='1'  <?php echo ($rowDtl['is_active'] == 1 ? 'checked' : ''); ?>/>
                                         </td>
                                         <td>
-                                            <input type="radio" name='radioBtn<?php echo $i?>' id="redioBtnIn_<?php echo $i?>" class="radioBtnClass"  value="in" <?php echo ($stockType=="in")? 'checked' : '' ?>/><label>&nbsp;IN</label><br/>
-                                            <input type="radio" name='radioBtn<?php echo $i?>' id="redioBtnOut_<?php echo $i?>" class="radioBtnClass"  value="out" <?php echo ($stockType=="out" ? 'checked' : '');?>/><label>&nbsp;OUT</label>
+                                            <input type="radio" name='radioBtn<?php echo $i ?>' id="redioBtnIn_<?php echo $i ?>" class="radioBtnClass"  value="in" <?php echo ($stockType == "in") ? 'checked' : '' ?>/><label>&nbsp;IN</label><br/>
+                                            <input type="radio" name='radioBtn<?php echo $i ?>' id="redioBtnOut_<?php echo $i ?>" class="radioBtnClass"  value="out" <?php echo ($stockType == "out" ? 'checked' : ''); ?>/><label>&nbsp;OUT</label>
                                         </td>
                                         <td>
                                             <div class="form-group">                   
@@ -107,12 +140,12 @@ include '../config/datasource.php';
                                                             <span class="btn btn-info btn-file">
                                                             <!--<span class="myBtn">-->
                                                                 <label>Browse...</label>                                                        
-                                                                <input type="file" id="picNames_<?php echo $i?>" name="productLogo<?php echo $i?>"
+                                                                <input type="file" id="picNames_<?php echo $i ?>" name="productLogo<?php echo $i ?>"
                                                                        class="fileName" onchange="changeFileName(this.id)">
                                                             </span>
                                                         </span>
-                                                        <input type="text" class="form-control tf" readonly="readonly" id="picName_<?php echo $i?>"
-                                                               name="productLogo<?php echo $i?>"
+                                                        <input type="text" class="form-control tf" readonly="readonly" id="picName_<?php echo $i ?>"
+                                                               name="productLogo<?php echo $i ?>"
                                                                placeholder ="Browse your file" class="form-control input-sm" value="<?php echo $rowDtl['product_logo_nm']; ?>">
 
                                                     </div>
@@ -120,11 +153,11 @@ include '../config/datasource.php';
                                             </div>
                                         </td>
                                         <td>                                      
-                                            <span id = 'deleteRow_<?php echo $i?>' class = 'dlt btn'><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span> 
+                                            <span id = 'deleteRow_<?php echo $i ?>' class = 'dlt btn'><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span> 
 
                                         </td>
                                     </tr> 
-                                    <?php                                   
+                                    <?php
                                 }; //end while
                                 ?> 
                                 <!--*****while end*****-->
@@ -194,9 +227,9 @@ include '../config/datasource.php';
 </div>
 <script src="../webapp/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function (){
-    $("#deleteRow_0").attr('Style', 'display: none;');
-});
+                        $(document).ready(function () {
+                            $("#deleteRow_0").attr('Style', 'display: none;');
+                        });
                         function sendFormData() {
                             var pct = $('#productCatTitle').val()
                             alert(pct)
@@ -261,20 +294,8 @@ $(document).ready(function (){
                             var id = this.id;
                             var idSegments = id.split("_");
                             var rowId = idSegments[1];
-                             var rowIndex = $(".QualificationRequirements tr").length - 1;
-//                            var cloneElement = ".QualificationRequirements tr:last";
-                            var cloneElementId = $('#deleteRow_'+rowId);
-                            var cloneElement = $(".QualificationRequirements tbody tr td:last");
-                            alert(rowId+" rowId")
-                            alert("cloneElement  "+cloneElement)
-                            alert("rowIndex  "+rowIndex)
-                            if (rowId >0) {
-                                 //$(_this).closest(cloneElement).remove();
-//                                $(cloneElement).remove();
-//$("#myTable").deleteRow(rowId);
- $(this).parents('tr').remove();
-//document.getElementById("myTable").deleteRow(rowId);
-//$("#deleteRow_0").attr('Style', 'display: none;');
+                            if (rowId > 0) {
+                                $(this).parents('tr').remove();
 
                             }
                             $("#deleteRow_0").attr('Style', 'display: none;');
