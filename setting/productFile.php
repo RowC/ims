@@ -82,8 +82,24 @@ if (isset($_REQUEST) && $_POST['productCatid']==NULL) {
     }
 }
 
-if(isset($_REQUEST) && $_POST['productCatid']=!NULL){
-    echo 'productCat id = '. $_POST['productCatid']; 
+elseif (isset($_REQUEST) && $_POST['productCatid']=!NULL){
+    echo $_POST['productCatid']; 
+    
+    $mstId = $_POST['productCatid']; 
+        $categoryTitle = $_POST['productCatTitle'];    
+ $productKeyword = $_POST['productCatKeyword']; 
+ 
+     $sqlMst = "UPDATE product_cat_mst SET 
+        category_title='$categoryTitle', category_keyword='$productKeyword',update_date = now() WHERE id='$mstId'"; // or die()
+//echo 'productCat Details Info= '. $id; 
+echo $sqlMst; 
+       // $updatedMst = mysqli_query($conn, $sqlMst);
+        if (mysqli_query($conn, $sqlMst)) {
+            $msg = "Successfully Updated!!";
+            echo '<script>window.open("productList.php","_self")</script>';
+        }  else {
+          echo mysqli_error($conn);  
+        }
 }
 
 ?>

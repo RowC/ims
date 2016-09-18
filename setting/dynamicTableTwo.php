@@ -27,13 +27,15 @@ include '../config/datasource.php';
                                   $resultMst = mysqli_query($conn, $sqlMst);
                                   $rowMst = mysqli_fetch_array($resultMst)
                     ?>
-                    <input type="hidden" name="productCatid" id="productCatid" value="<?php echo $rowMst['id']; ?>" class="form-control">
+                    
                     <div class="row">
                         <div class="form-group">
+                             <input type="text" name="productCatid" id="productCatid" value="<?php echo $rowMst['id']; ?>" class="form-control">
                             <label class="col-md-3 control-label">
                                 Product Category Title
                             </label>
                             <div class="col-md-4">
+                               
                                 <input type="text" name="productCatTitle" id="productCatTitle" value="<?php echo $rowMst['category_title']; ?>" class="form-control">
                             </div>
                         </div>                              
