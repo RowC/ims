@@ -27,10 +27,14 @@ include '../config/datasource.php';
                                   $resultMst = mysqli_query($conn, $sqlMst);
                                   $rowMst = mysqli_fetch_array($resultMst)
                     ?>
-                    
+                    <div class="row">
+                    <div class=" col-md-2">
+                    <input type="hidden" name="productCatMstId" id="productCatid" value="<?php echo $rowMst['id']; ?>" class="form-control">                   
+                    </div>
+                    </div>
                     <div class="row">
                         <div class="form-group">
-                             <input type="text" name="productCatid" id="productCatid" value="<?php echo $rowMst['id']; ?>" class="form-control">
+                             
                             <label class="col-md-3 control-label">
                                 Product Category Title
                             </label>
@@ -52,7 +56,7 @@ include '../config/datasource.php';
                     </div>
                     <?php } else {
                                 ?>
-                    <input type="hidden" name="productCatid" id="productCatid" value="" class="form-control">
+                    <input type="hidden" name="productCatMstId" id="productCatid" value="" class="form-control">
                        <div class="row">
                         <div class="form-group">
                             <label class="col-md-3 control-label">
@@ -110,7 +114,7 @@ include '../config/datasource.php';
                                     $stockType = $rowDtl['stock_type'];
                                     echo $stockType;
                                     ?>
-
+                        <input type="hidden" name='pName[]' id="pName_0"  class="form-control" value=""/>
 
                                     <tr id='addr0' class="aa">
                                         <td>
