@@ -114,11 +114,12 @@ include '../config/datasource.php';
                                     $stockType = $rowDtl['stock_type'];
                                     echo $stockType;
                                     ?>
-                        <input type="hidden" name='pName[]' id="pName_0"  class="form-control" value=""/>
+                        <input type="hidden" name='pName[]' id="pName_<?php echo $i ?>"  class="form-control" value=""/>
+                        
 
                                     <tr id='addr0' class="aa">
                                         <td>
-                                            <select id="ietm_0" name="item[0]" class="selectBox">
+                                            <select id="ietm_0" name="item<?php echo $i ?>" class="selectBox">
                                                 <option value="">Select One</option>
                                                 <option value="1">Item 1</option>
                                                 <option value="2">Item 2</option>
@@ -126,6 +127,7 @@ include '../config/datasource.php';
                                             </select>
                                         </td>
                                         <td>
+                                            <input type="text" name='dtlId<?php echo $i ?>' id="id_<?php echo $i ?>"  class="form-control" value="<?php echo $rowDtl['id']; ?>"/>
                                             <input type="text" name='pName<?php echo $i ?>' id="pName_<?php echo $i ?>"  class="form-control" value="<?php echo $rowDtl['product_name']; ?>"/>
                                         </td>
                                         <td>
