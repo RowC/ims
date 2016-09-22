@@ -22,63 +22,63 @@ include '../config/datasource.php';
                 <div class="box-header">
                     <?php
                     if (isset($_GET['id'])) {
-                                $id = $_GET['id'];                              
-                                 $sqlMst = "select * from product_cat_mst where product_cat_mst_id='" . $id . "'";
-                                  $resultMst = mysqli_query($conn, $sqlMst);
-                                  $rowMst = mysqli_fetch_array($resultMst)
-                    ?>
-                    <div class="row">
-                    <div class=" col-md-2">
-                    <input type="hidden" name="productCatMstId" id="productCatid" value="<?php echo $rowMst['id']; ?>" class="form-control">                   
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                             
-                            <label class="col-md-3 control-label">
-                                Product Category Title
-                            </label>
-                            <div class="col-md-4">
-                               
-                                <input type="text" name="productCatTitle" id="productCatTitle" value="<?php echo $rowMst['category_title']; ?>" class="form-control">
-                            </div>
-                        </div>                              
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">
-                                Product Category Keyword
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" name="productCatKeyword" id="productCatKeyword" value="<?php echo $rowMst['category_keyword']; ?>" class="form-control">
+                        $id = $_GET['id'];
+                        $sqlMst = "select * from product_cat_mst where product_cat_mst_id='" . $id . "'";
+                        $resultMst = mysqli_query($conn, $sqlMst);
+                        $rowMst = mysqli_fetch_array($resultMst)
+                        ?>
+                        <div class="row">
+                            <div class=" col-md-2">
+                                <input type="hidden" name="productCatMstId" id="productCatid" value="<?php echo $rowMst['id']; ?>" class="form-control">                   
                             </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="form-group">
+
+                                <label class="col-md-3 control-label">
+                                    Product Category Title
+                                </label>
+                                <div class="col-md-4">
+
+                                    <input type="text" name="productCatTitle" id="productCatTitle" value="<?php echo $rowMst['category_title']; ?>" class="form-control">
+                                </div>
+                            </div>                              
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">
+                                    Product Category Keyword
+                                </label>
+                                <div class="col-md-4">
+                                    <input type="text" name="productCatKeyword" id="productCatKeyword" value="<?php echo $rowMst['category_keyword']; ?>" class="form-control">
+                                </div>
+                            </div>
+                        </div>
                     <?php } else {
-                                ?>
-                    <input type="hidden" name="productCatMstId" id="productCatid" value="" class="form-control">
-                       <div class="row">
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">
-                                Product Category Title
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" name="productCatTitle" id="productCatTitle" value="" class="form-control">
-                            </div>
-                        </div>                              
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">
-                                Product Category Keyword
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" name="productCatKeyword" id="productCatKeyword" value="" class="form-control">
+                        ?>
+                        <input type="hidden" name="productCatMstId" id="productCatid" value="" class="form-control">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">
+                                    Product Category Title
+                                </label>
+                                <div class="col-md-4">
+                                    <input type="text" name="productCatTitle" id="productCatTitle" value="" class="form-control">
+                                </div>
+                            </div>                              
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">
+                                    Product Category Keyword
+                                </label>
+                                <div class="col-md-4">
+                                    <input type="text" name="productCatKeyword" id="productCatKeyword" value="" class="form-control">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                      <?php } ?>
-                    
+                    <?php } ?>
+
                 </div>
                 <div class="box-body"> 
                     <table id="myTable" class="table table-bordered table-striped QualificationRequirements">
@@ -114,65 +114,12 @@ include '../config/datasource.php';
                                     $stockType = $rowDtl['stock_type'];
                                     echo $stockType;
                                     ?>
-                        <input type="hidden" name='pName[]' id="pName_<?php echo $i ?>"  class="form-control" value=""/>
-                        
+                                <input type="hidden" name='pName[]' id="pName_<?php echo $i ?>"  class="form-control" value=""/>
 
-                                    <tr id='addr0' class="aa">
-                                        <td>
-                                            <select id="ietm_0" name="item<?php echo $i ?>" class="selectBox">
-                                                <option value="">Select One</option>
-                                                <option value="1">Item 1</option>
-                                                <option value="2">Item 2</option>
-                                                <option value="3">Item 3</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="text" name='dtlId<?php echo $i ?>' id="id_<?php echo $i ?>"  class="form-control" value="<?php echo $rowDtl['id']; ?>"/>
-                                            <input type="text" name='pName<?php echo $i ?>' id="pName_<?php echo $i ?>"  class="form-control" value="<?php echo $rowDtl['product_name']; ?>"/>
-                                        </td>
-                                        <td>
-                                            <textarea name='pDescription<?php echo $i ?>' cols="50" rows="1" id="pDescription_<?php echo $i ?>" class="borderColor"><?php echo $rowDtl['product_description']; ?></textarea>
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" name='activeList<?php echo $i ?>' id="isActive_<?php echo $i ?>" class="checkedVal borderColor" value='1'  <?php echo ($rowDtl['is_active'] == 1 ? 'checked' : ''); ?>/>
-                                        </td>
-                                        <td>
-                                            <input type="radio" name='radioBtn<?php echo $i ?>' id="redioBtnIn_<?php echo $i ?>" class="radioBtnClass"  value="in" <?php echo ($stockType == "in") ? 'checked' : '' ?>/><label>&nbsp;IN</label><br/>
-                                            <input type="radio" name='radioBtn<?php echo $i ?>' id="redioBtnOut_<?php echo $i ?>" class="radioBtnClass"  value="out" <?php echo ($stockType == "out" ? 'checked' : ''); ?>/><label>&nbsp;OUT</label>
-                                        </td>
-                                        <td>
-                                            <div class="form-group">                   
-                                                <div class="col-lg-10 col-xs-10">
-                                                    <div class="input-group">
-                                                        <span class="input-group-btn">
-                                                            <span class="btn btn-info btn-file">
-                                                            <!--<span class="myBtn">-->
-                                                                <label>Browse...</label>                                                        
-                                                                <input type="file" id="picNames_<?php echo $i ?>" name="productLogo<?php echo $i ?>"
-                                                                       class="fileName" onchange="changeFileName(this.id)">
-                                                            </span>
-                                                        </span>
-                                                        <input type="text" class="form-control tf" readonly="readonly" id="picName_<?php echo $i ?>"
-                                                               name="productLogo<?php echo $i ?>"
-                                                               placeholder ="Browse your file" class="form-control input-sm" value="<?php echo $rowDtl['product_logo_nm']; ?>">
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>                                      
-                                            <span id = 'deleteRow_<?php echo $i ?>' class = 'dlt btn'><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span> 
-
-                                        </td>
-                                    </tr> 
-                                    <?php
-                                }; //end while
-                                ?> 
-                                <!--*****while end*****-->
-                            <?php } else {
-                                ?> <tr id='addr0' class="aa">
+                                <tr id='addr0' class="aa">
                                     <td>
-                                        <select id="ietm_0" name="item[0]" class="selectBox">
+                                        <select id="ietm_0" name="item<?php echo $i ?>" class="selectBox">
                                             <option value="">Select One</option>
                                             <option value="1">Item 1</option>
                                             <option value="2">Item 2</option>
@@ -180,17 +127,18 @@ include '../config/datasource.php';
                                         </select>
                                     </td>
                                     <td>
-                                        <input type="text" name='pName[]' id="pName_0"  class="form-control" value=""/>
+                                        <input type="hidden" name='dtlId<?php echo $i ?>' id="id_<?php echo $i ?>"  class="form-control" value="<?php echo $rowDtl['id']; ?>"/>
+                                        <input type="text" name='pName<?php echo $i ?>' id="pName_<?php echo $i ?>"  class="form-control" value="<?php echo $rowDtl['product_name']; ?>"/>
                                     </td>
                                     <td>
-                                        <textarea name='pDescription[]' cols="50" rows="1" id="pDescription_0" class="borderColor"></textarea>
+                                        <textarea name='pDescription<?php echo $i ?>' cols="50" rows="1" id="pDescription_<?php echo $i ?>" class="borderColor"><?php echo $rowDtl['product_description']; ?></textarea>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal borderColor" value="1"/>
+                                        <input type="checkbox" name='activeList<?php echo $i ?>' id="isActive_<?php echo $i ?>" class="checkedVal borderColor" value='1'  <?php echo ($rowDtl['is_active'] == 1 ? 'checked' : ''); ?>/>
                                     </td>
                                     <td>
-                                        <input type="radio" name='radioBtn[0]' id="redioBtnIn_0" class="radioBtnClass"  value="in" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;IN</label><br/>
-                                        <input type="radio" name='radioBtn[0]' id="redioBtnOut_0" class="radioBtnClass"  value="out" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;OUT</label>
+                                        <input type="radio" name='radioBtn<?php echo $i ?>' id="redioBtnIn_<?php echo $i ?>" class="radioBtnClass"  value="in" <?php echo ($stockType == "in") ? 'checked' : '' ?>/><label>&nbsp;IN</label><br/>
+                                        <input type="radio" name='radioBtn<?php echo $i ?>' id="redioBtnOut_<?php echo $i ?>" class="radioBtnClass"  value="out" <?php echo ($stockType == "out" ? 'checked' : ''); ?>/><label>&nbsp;OUT</label>
                                     </td>
                                     <td>
                                         <div class="form-group">                   
@@ -200,24 +148,76 @@ include '../config/datasource.php';
                                                         <span class="btn btn-info btn-file">
                                                         <!--<span class="myBtn">-->
                                                             <label>Browse...</label>                                                        
-                                                            <input type="file" id="picNames_0" name="productLogo[0]"
+                                                            <input type="file" id="picNames_<?php echo $i ?>" name="productLogo<?php echo $i ?>"
                                                                    class="fileName" onchange="changeFileName(this.id)">
                                                         </span>
                                                     </span>
-                                                    <input type="text" class="form-control tf" readonly="readonly" id="picName_0"
-                                                           name="productLogo[0]"
-                                                           placeholder ="Browse your file" class="form-control input-sm">
+                                                    <input type="text" class="form-control tf" readonly="readonly" id="picName_<?php echo $i ?>"
+                                                           name="productLogo<?php echo $i ?>"
+                                                           placeholder ="Browse your file" class="form-control input-sm" value="<?php echo $rowDtl['product_logo_nm']; ?>">
 
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td>
-                                        <!--<span id = 'deleteRow_0' class = 'dlt btn' Style = "display: none"><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span>--> 
+                                    <td>                                      
+                                        <span id = 'deleteRow_<?php echo $i ?>' class = 'dlt btn'><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span> 
 
                                     </td>
                                 </tr> 
-                            <?php } ?>
+                                <?php
+                            }; //end while
+                            ?> 
+                            <!--*****while end*****-->
+                        <?php } else {
+                            ?> <tr id='addr0' class="aa">
+                                <td>
+                                    <select id="ietm_0" name="item[0]" class="selectBox">
+                                        <option value="">Select One</option>
+                                        <option value="1">Item 1</option>
+                                        <option value="2">Item 2</option>
+                                        <option value="3">Item 3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" name='pName[]' id="pName_0"  class="form-control" value=""/>
+                                </td>
+                                <td>
+                                    <textarea name='pDescription[]' cols="50" rows="1" id="pDescription_0" class="borderColor"></textarea>
+                                </td>
+                                <td>
+                                    <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal borderColor" value="1"/>
+                                </td>
+                                <td>
+                                    <input type="radio" name='radioBtn[0]' id="redioBtnIn_0" class="radioBtnClass"  value="in" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;IN</label><br/>
+                                    <input type="radio" name='radioBtn[0]' id="redioBtnOut_0" class="radioBtnClass"  value="out" onchange="setRadioBtnValue(this.id)"/><label>&nbsp;OUT</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">                   
+                                        <div class="col-lg-10 col-xs-10">
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <span class="btn btn-info btn-file">
+                                                    <!--<span class="myBtn">-->
+                                                        <label>Browse...</label>                                                        
+                                                        <input type="file" id="picNames_0" name="productLogo[0]"
+                                                               class="fileName" onchange="changeFileName(this.id)">
+                                                    </span>
+                                                </span>
+                                                <input type="text" class="form-control tf" readonly="readonly" id="picName_0"
+                                                       name="productLogo[0]"
+                                                       placeholder ="Browse your file" class="form-control input-sm">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--<span id = 'deleteRow_0' class = 'dlt btn' Style = "display: none"><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span>--> 
+
+                                </td>
+                            </tr> 
+                        <?php } ?>
 
                         </tbody>
                     </table>
@@ -240,7 +240,7 @@ include '../config/datasource.php';
                         });
                         function sendFormData() {
                             var pct = $('#productCatTitle').val()
-                            alert(pct)
+
                             var data = new FormData($('#myForm')[0]); //this will select all the form data in the data variable.                                       
                             $.ajax({
                                 url: "productFile.php",
