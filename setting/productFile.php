@@ -147,12 +147,12 @@ if (isset($_REQUEST) && empty($_POST['productCatMstId'])) {
 //                    } else {
 //                        $upload_dir[$i] = '';
 //                    }     
-//            if ($_POST["dtlId$i"]) {
+            if ($_POST["dtlId$i"]) {
                 $sqlDtl = "UPDATE product_cat_dtl SET item_id= '" . $_POST["item$i"] . "',product_name='" . $_POST["pName$i"] . "', product_description='" . $_POST["pDescription$i"] . "',is_active='" . $isActive . "',stock_type='" . $radiobtn . "',product_logo_nm='" . $product_image . "',logo_size='" . $imgSize . "',product_logo_path='" . $upload_dir . "', update_date = now() WHERE id=" . $_POST["dtlId$i"] . "";
-//            }
-//            else {
-//                $sqlDtl = "INSERT INTO product_cat_dtl(item_id,product_name,product_description,is_active,stock_type,product_cat_mst,product_logo_nm,logo_size,product_logo_path,create_date)values('" . $_POST['item'][$i] . "','" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] . "','$isActive','$radiobtn','$var','$product_image','$imgSize','$upload_dir[$i]',now())";
-//            } 
+            }
+            else {
+                $sqlDtl = "INSERT INTO product_cat_dtl(item_id,product_name,product_description,is_active,stock_type,product_cat_mst,product_logo_nm,logo_size,product_logo_path,create_date)values('" . $_POST['item'][$i] . "','" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] . "','$isActive','$radiobtn','$var','$product_image','$imgSize','$upload_dir[$i]',now())";
+            } 
             $dtlResult = mysqli_query($conn, $sqlDtl);
         }
 

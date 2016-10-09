@@ -286,6 +286,7 @@ include '../config/datasource.php';
 <i class = "fa fa-times" style = "color:red;font-size:20px"></i></span>');
                                         }
                                         $(cloneElement).find('input[type="text"]').val('');
+                                        $(cloneElement).find('input[type="hidden"]').val('');
                                         $(cloneElement).find('textArea').val('');
                                         $(cloneElement).find('select').val('');
                                         $(cloneElement).find('input[type="checkbox"]').removeAttr('checked');
