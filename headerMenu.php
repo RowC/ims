@@ -425,7 +425,7 @@ th{
                             <ul class="treeview-menu">
                                 <li><a href="dynamicTable.php"><i class="fa fa-circle-o"></i>D Table One</a></li>
                                 <li><a href="dynamicTableTwo.php"><i class="fa fa-circle-o"></i>D Table Two</a></li>
-                                <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
+                                 <li><a href="mail.php"><i class="fa fa-circle-o"></i> Mail</a></li>
                                 <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
                             </ul>
                         </li>
