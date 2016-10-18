@@ -84,7 +84,8 @@ if (isset($_REQUEST) && empty($_POST['productCatMstId'])) {
             echo 'Please Enter Product Name';
         }
     }
-} elseif (isset($_REQUEST) && !empty($_POST['productCatMstId'])) {
+} 
+elseif (isset($_REQUEST) && !empty($_POST['productCatMstId'])) {
     $mstId = $_POST['productCatMstId'];
     $categoryTitle = $_POST['productCatTitle'];
     $productKeyword = $_POST['productCatKeyword'];
@@ -146,21 +147,25 @@ if (isset($_REQUEST) && empty($_POST['productCatMstId'])) {
 //                        $upload_dir[$i] = '/dist/imgs/product_img/';
 //                    } else {
 //                        $upload_dir[$i] = '';
-//                    }     
+//                    }  
+            $sqlDtl1 = "";
+             echo 'Id'.$_POST["dtlId$i"];
             if ($_POST["dtlId$i"]) {
-                $sqlDtl = "UPDATE product_cat_dtl SET item_id= '" . $_POST["item$i"] . "',product_name='" . $_POST["pName$i"] . "', product_description='" . $_POST["pDescription$i"] . "',is_active='" . $isActive . "',stock_type='" . $radiobtn . "',product_logo_nm='" . $product_image . "',logo_size='" . $imgSize . "',product_logo_path='" . $upload_dir . "', update_date = now() WHERE id=" . $_POST["dtlId$i"] . "";
+                 echo 'Update'.$_POST["dtlId$i"];
+                $sqlDtl1 = "UPDATE product_cat_dtl SET item_id= '" . $_POST["item$i"] . "',product_name='" . $_POST["pName$i"] . "', product_description='" . $_POST["pDescription$i"] . "',is_active='" . $isActive . "',stock_type='" . $radiobtn . "',product_logo_nm='" . $product_image . "',logo_size='" . $imgSize . "',product_logo_path='" . $upload_dir . "', update_date = now() WHERE id=" . $_POST["dtlId$i"] . "";
             }
-            else {
-                $sqlDtl = "INSERT INTO product_cat_dtl(item_id,product_name,product_description,is_active,stock_type,product_cat_mst,product_logo_nm,logo_size,product_logo_path,create_date)values('" . $_POST['item'][$i] . "','" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] . "','$isActive','$radiobtn','$var','$product_image','$imgSize','$upload_dir[$i]',now())";
+            else if($_POST["dtlId$i"]=="" || $_POST["dtlId$i"]==NULL) {
+                echo 'insert'.$_POST["dtlId$i"];
+                $sqlDtl1 = "INSERT INTO product_cat_dtl(item_id,product_name,product_description,is_active,stock_type,product_cat_mst,product_logo_nm,logo_size,product_logo_path,create_date)values('" . $_POST['item'][$i] . "','" . $_POST['pName'][$i] . "','" . $_POST['pDescription'][$i] . "','$isActive','$radiobtn','$var','$product_image','$imgSize','$upload_dir[$i]',now())";
             } 
-            $dtlResult = mysqli_query($conn, $sqlDtl);
+            $dtlResult = mysqli_query($conn, $sqlDtl1);
         }
 
         //    echo "Dtl Id = ".$_POST["dtlId$i"];                
 //                 echo "row ID = ".$rowDtl['id'];
 
         move_uploaded_file($tmp_dir, '../webapp' . $file_dir . $product_image);
-        $sqlDtl = trim($sqlDtl, ",");
+       // $sqlDtl = trim($sqlDtl, ",");
 //    echo $sqlDtl;  
         //$result = mysqli_query($conn, $sqlDtl);
         if ($dtlResult) {
