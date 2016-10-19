@@ -30,6 +30,7 @@ include '../config/datasource.php';
                         <div class="row">
                             <div class=" col-md-2">
                                 <input type="hidden" name="productCatMstId" id="productCatid" value="<?php echo $rowMst['id']; ?>" class="form-control">                   
+                                <input type="hidden" name="productCatMst" id="productCatid" value="<?php echo $rowMst['product_cat_mst_id']; ?>" class="form-control">                   
                             </div>
                         </div>
                         <div class="row">
@@ -114,7 +115,7 @@ include '../config/datasource.php';
                                     $stockType = $rowDtl['stock_type'];
                                     echo $stockType;
                                     ?>
-                                <input type="hidden" name='pName[]' id="pName_<?php echo $i ?>"  class="form-control" value=""/>
+                               
 
 
                                 <tr id='addr0' class="aa">
@@ -127,6 +128,7 @@ include '../config/datasource.php';
                                         </select>
                                     </td>
                                     <td>
+                                         <input type="hidden" name='pName[]' id="pName_<?php echo $i ?>"  class="form-control" value=""/>
                                         <input type="hidden" name='dtlId<?php echo $i ?>' id="id_<?php echo $i ?>"  class="form-control" value="<?php echo $rowDtl['id']; ?>"/>
                                         <input type="text" name='pName<?php echo $i ?>' id="pName_<?php echo $i ?>"  class="form-control" value="<?php echo $rowDtl['product_name']; ?>"/>
                                     </td>
