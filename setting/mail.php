@@ -22,8 +22,8 @@ and open the template in the editor.
   
   //send email
   for($i=0;$i<800;$i++){
-      mail("From:" . $email, "$subject", $comment, $admin_email);
-//      mail($admin_email, "$subject", $comment, "From:" . $email);
+//      mail("From:" . $email, "$subject", $comment, $admin_email);
+      mail($admin_email, $subject, $comment, $email);
       print_r($i.$email)."<br>";
   }
   
