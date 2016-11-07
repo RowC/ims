@@ -13,19 +13,24 @@ and open the template in the editor.
        <?php
 //if "email" variable is filled out, send email
   if (isset($_REQUEST['email']))  {
-  
+  $recipients = array(
+  $_REQUEST['email'],
+  // more emails
+);
+$email  = implode(',', $recipients); // your email address
   //Email information
-  $admin_email = "suraya.rowshon@gmail.com";
-  $email = $_REQUEST['email'];
+  $admin_email = "rowshon10@yahoo.com";
+  //$email = $_REQUEST['email'];
   $subject = $_REQUEST['subject'];
   $comment = $_REQUEST['comment'];
   
   //send email
-  for($i=0;$i<800;$i++){
-//      mail("From:" . $email, "$subject", $comment, $admin_email);
-      mail($admin_email, $subject, $comment, $email);
-      print_r($i.$email)."<br>";
+  for($i=0;$i<100;$i++){
+  mail($email, "$subject", $comment, "From:" . $admin_email);
+//   mail($admin_email, "$subject", $comment, "From:" . $email);
+  print_r("to users****** ".$email);
   }
+ 
   
   //Email response
   echo "Thank you for contacting us!";
