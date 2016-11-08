@@ -27,6 +27,8 @@ and open the template in the editor.
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="../webapp/dist/css/skins/_all-skins.min.css">
+        <link rel="stylesheet" href="webapp/plugins/select2/select2.min.css">
+        <link rel="stylesheet" href="webapp/plugins/select2/select2.css">
         
         <style type="text/css">
 /*            .skin-black .wrapper,

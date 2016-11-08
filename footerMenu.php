@@ -35,5 +35,7 @@
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="../webapp/plugins/morris/morris.min.js"></script>
+<script src="webapp/plugins/select2/select2.min.js"></script>
+<script src="webapp/plugins/select2/select2.full.js"></script>
 </body>
 </html>
