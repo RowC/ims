@@ -23,12 +23,11 @@ include '../config/datasource.php';
         <div class="box">
             <form action="" class="form-horizontal" id="myForm">
                 <?php
-                if ($_SESSION["id"]!=NULL) {
-    $roleId = $_SESSION["id"];
-    echo '<input type="text" id="roleId" name="id" value="$roleId" class="form-control"/>';
-}
+                if ($_SESSION['roleId']) {
+                    $roleId = $_SESSION['roleId'];
+                    echo '<input type="text" id="roleId" name="id" value="$roleId" class="form-control"/>';
+                }
                 ?>
-                 
                 <div class="box-header">
                     Edit Role
                 </div>
@@ -55,7 +54,7 @@ include '../config/datasource.php';
     </section>
     <!--<script src="../webapp/plugins/jQuery/jquery-2.2.3.min.js"></script>-->
     <script type="text/javascript">
-        function loadData(){
+        function loadData() {
             var roleId = $("#roleId").val();
             $.ajax({
                 url: "authRoleController.php",
@@ -67,14 +66,14 @@ include '../config/datasource.php';
                 success: function (data)
                 {
                     alert(data)
-                   
+
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert("Something went wrong!!!!!!!!")
                 }
             });
         }
-        
+
         function sendFormData() {
             var data = new FormData($('#myForm')[0]); //this will select all the form data in the data variable.                                       
             $.ajax({

@@ -36,7 +36,7 @@ include '../config/datasource.php';
                 $result = mysqli_query($conn, $sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                       echo "<tr>" . "<td>" . $row["authority"] . "</td> " . "<td>" .$row["description"]. " </td> " . "<td>" . $row["create_date"] . "</td>" . "<td>" . $row["modified_date"] . "</td>" . " <td><a href='show.php?&id= " . $row["id"] . "' class='btn btn-info btn-xs' target='_blank'> View <i class='fa fa-file-text-o'></i></a>&nbsp; <a href='editRole.php?id=".$row["id"]."' class='btn btn-warning btn-xs' target='_blank' >Edit<i class='fa fa-fw fa-edit'></i></a> &nbsp;<a href='authRoleController.php?action=delete&id= " . $row["id"] . "' class='btn btn-danger btn-xs'>Delete<i class='fa fa-fw fa-eraser'></i></a></td> " . " </tr> ";
+                       echo "<tr>" . "<td>" . $row["authority"] . "</td> " . "<td>" .$row["description"]. " </td> " . "<td>" . $row["create_date"] . "</td>" . "<td>" . $row["modified_date"] . "</td>" . " <td><a href='show.php?&id= " . $row["id"] . "' class='btn btn-info btn-xs' target='_blank'> View <i class='fa fa-file-text-o'></i></a>&nbsp; <a href='editRole.php?roleId=".$row["id"]."' class='btn btn-warning btn-xs' target='_blank' >Edit<i class='fa fa-fw fa-edit'></i></a> &nbsp;<a href='authRoleController.php?action=delete&id= " . $row["id"] . "' class='btn btn-danger btn-xs'>Delete<i class='fa fa-fw fa-eraser'></i></a></td> " . " </tr> ";
                   }
                 } else {
                     echo "<tr><td colspan='5' align='center'>No Record Found!!!!</td>";
