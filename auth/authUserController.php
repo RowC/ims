@@ -8,7 +8,10 @@ if (isset($_REQUEST)) {
     $roleId = $_POST['roleId'];
     $email = $_POST['email'];
     $celNo = $_POST['celNo'];
-
+$stamp = date("y.m.d.hs");
+//$ip = $_SERVER['REMOTE_ADDR'];
+    //$orderid = "$productCatKeyword-$stamp";
+    $var = str_replace(".", "", "$stamp");
     if (empty($userName)) {
         $errMSG = "User name is required.";
         echo '<h1 class="text-red" align="center">User name is required.</h1>';
