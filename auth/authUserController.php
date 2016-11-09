@@ -1,4 +1,5 @@
 <?php
+
 include '../config/datasource.php';
 //if (isset($_POST['role'])) {
 if (isset($_REQUEST)) {
@@ -7,11 +8,11 @@ if (isset($_REQUEST)) {
     $password = $_POST['password'];
     $roleId = $_POST['roleId'];
     $email = $_POST['email'];
-    $celNo = $_POST['celNo'];
-$stamp = date("y.m.d.hs");
+    $cellNo = $_POST['cellNo'];
+    $stamp = date("y.m.d.hs");
 //$ip = $_SERVER['REMOTE_ADDR'];
-    //$orderid = "$productCatKeyword-$stamp";
-    $var = str_replace(".", "", "$stamp");
+    $orderid = "C-$stamp";
+    $var = str_replace(".", "", "$orderid");
     if (empty($userName)) {
         $errMSG = "User name is required.";
         echo '<h1 class="text-red" align="center">User name is required.</h1>';
@@ -28,18 +29,40 @@ $stamp = date("y.m.d.hs");
     }
     // if no error occured, continue ....
     if (!isset($errMSG)) {
-        $sql = "INSERT INTO auth_user (full_name,user_name,password,email,celNo,create_date,create_by) VALUES('$fullName','$userName','$password','$email','$celNo',now(),null)";
-        $insert_pro = mysqli_query($conn, $sql);  
-        //$splForSearchUserId = ""
-        echo 'Data saved successfully!!!!';
+        $sql = "INSERT INTO auth_user (user_code,full_name,user_name,password,email,cellNo,created_date,created_by) VALUES('$var','$fullName','$userName','$password','$email','$cellNo',now(),null)";
+        $insert_user = mysqli_query($conn, $sql);
+        $searchUserId = "select id from auth_user where user_code ='$var'";
+        $user_pro = mysqli_query($conn, $searchUserId);
+        $rows = mysqli_fetch_array($user_pro);
+
+        $user_id = $rows['id'];
+        $splForSearchUserId = "insert into user_role(auth_user,auth_role,create_date,created_by)values";
+//        $countUserId = count($_POST['roleId']);        
+        $countUserId = $_POST['roleId'];
+//        for ($i = 0; $i < $countUserId; $i++) {
+        foreach ($countUserId as $value) {
+//            $role_id=implode(',',$_POST['roleId']);
+            $splForSearchUserId .= "('$user_id','" . mysqli_real_escape_string($conn, $value) . "',now(),null),";
+        }
+        $splForUserRole = trim($splForSearchUserId, ",");
+        $insert_userRole = mysqli_query($conn, $splForUserRole);
+        if ($insert_user && $insert_userRole) {
+            //echo $insert_user . "--" . $insert_userRole . "Count role id" . $countUserId;
+            echo 'Data saved successfully!!!!';
+        } else {
+            echo 'Somthing went wrong!!!!';
+            echo $insert_user . "--" . $insert_userRole . "Count role id" . $countUserId;
+        }
+
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        if (!$insert_pro) {
+        if (!$insert_user) {
             echo mysqli_error($conn);
-            echo '<script>window.open("../index.php","_self")</script>';
+            // echo '<script>window.open("../index.php","_self")</script>';
             return;
         }
     }
 }
-
+mysqli_close($conn);
+?>

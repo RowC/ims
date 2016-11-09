@@ -56,7 +56,7 @@ include '../config/datasource.php';
                     <div class="form-group">
                         <label for="role" class="col-sm-2 control-label">Role</label>
                         <div class="col-md-6">
-                            <select class="form-control select2" id="roleId" name="roleId" multiple="multiple">
+                            <select class="form-control select2" id="roleId" name="roleId[]" multiple="multiple">
                                 <option value="">Select One</option>
                                 <?php
                                 $sql = "select * from auth_role";
