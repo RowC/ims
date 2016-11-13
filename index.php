@@ -27,32 +27,34 @@ and open the template in the editor.
         <link rel="stylesheet" href="webapp/dist/css/skins/_all-skins.min.css">
     </head>
     <body background="webapp/dist/imgs/bg-img.jpg">
-    <!--<body class="bg-purple-gradient">-->
+        <!--<body class="bg-purple-gradient">-->
         <a href="setting/adminDashboard.php">Admin Panel</a>
         <div class="wrapper" style="margin-top: 15%;margin-left: 15%">
             <div class="container">
                 <div class="col-md-8">
                     <!--<section class="content-wrapper">-->
                     <div class="content-wrapper">
-                    <div class="panel" style="background-color: transparent;">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class=" col-md-12" >
-                                    <input type="text" name="userName" placeholder="User Name" class="form-control" style="background-color: transparent;"/><br>
-                                    <input type="password" name="password" placeholder="Password" class="form-control" style="background-color: transparent;"/>
+                        <form action="auth/loginController.php" method="post">
+                            <div class="panel" style="background-color: transparent;">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class=" col-md-12" >
+                                            <input type="text" name="userName" placeholder="User Name" class="form-control" style="background-color: transparent;"/><br>
+                                            <input type="password" name="password" placeholder="Password" class="form-control" style="background-color: transparent;"/>
+                                        </div>
+                                    </div>                    
+                                </div>  
+                                <div class="panel-footer" style="background-color: transparent;">
+                                    <div class="row">
+                                        <!--<input type="submit" name="sub" value="Login" class="btn btn-lg btn-warning btn-block">-->
+                                        <input type="submit" name="sub" value="Login" class="btn btn-lg btn-google btn-block">
+                                        <!--<button type="submit" name="save" class="">Login</button>-->
+                                    </div>
                                 </div>
-                            </div>                    
-                        </div>  
-                        <div class="panel-footer" style="background-color: transparent;">
-                            <div class="row">
-                                <!--<input type="submit" name="sub" value="Login" class="btn btn-lg btn-warning btn-block">-->
-                                <input type="submit" name="sub" value="Login" class="btn btn-lg btn-google btn-block">
-                                <!--<button type="submit" name="save" class="">Login</button>-->
                             </div>
-                        </div>
+                        </form>
                     </div>
-                    </div>
-                <!--</section>-->
+                    <!--</section>-->
                 </div>
             </div>
         </div>

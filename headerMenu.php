@@ -414,6 +414,7 @@ th{
                             <ul class="treeview-menu">
                                 <li><a href="../auth/authRole.php"><i class="fa fa-circle-o"></i>Add Role</a></li>
                                 <li class=""><a href="../auth/authUser.php"><i class="fa fa-circle-o"></i>Add User</a></li>
+                                <li class=""><a href="../auth/authRequestMap.php"><i class="fa fa-circle-o"></i>Add Requestmap</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
