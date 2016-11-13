@@ -4,6 +4,8 @@ include '../config/datasource.php';
 //if (isset($_POST['role'])) {
 if (isset($_REQUEST)) {
     $fullName = $_POST['fullName'];
+//    $userName = mysqli_real_escape_string($_POST['userName']);
+//    $password = mysqli_real_escape_string($_POST['password']);
     $userName = $_POST['userName'];
     $password = $_POST['password'];
     $roleId = $_POST['roleId'];
@@ -29,7 +31,8 @@ if (isset($_REQUEST)) {
     }
     // if no error occured, continue ....
     if (!isset($errMSG)) {
-        $sql = "INSERT INTO auth_user (user_code,full_name,user_name,password,email,cellNo,created_date,created_by) VALUES('$var','$fullName','$userName','$password','$email','$cellNo',now(),null)";
+        $encriptedPassword = md5($password);
+        $sql = "INSERT INTO auth_user (user_code,full_name,user_name,password,email,cellNo,created_date,created_by) VALUES('$var','$fullName','$userName','$encriptedPassword','$email','$cellNo',now(),null)";
         $insert_user = mysqli_query($conn, $sql);
         $searchUserId = "select id from auth_user where user_code ='$var'";
         $user_pro = mysqli_query($conn, $searchUserId);
