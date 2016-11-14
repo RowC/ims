@@ -48,7 +48,7 @@ include '../setting/function.php';
         </div>
     </div>
 
-    <div class="form-group ">
+<!--    <div class="form-group ">
         <label for="httpMethod" class="col-sm-2 control-label">Access Permit Type</label>
 
         <div class="col-sm-6">
@@ -60,7 +60,7 @@ include '../setting/function.php';
             </select>
 
         </div>
-    </div>
+    </div>-->
 
     <div class="form-group">
         <label for="httpMethod" class="col-sm-2 control-label">Role
