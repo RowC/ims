@@ -71,8 +71,7 @@ include '../setting/function.php';
 
             <div class="box scroll-div" id="scrollDiv">
                 <div class="box-body no-padding">
-                    <table class="table table-striped">
-                       
+                    <table class="table table-striped">                       
                            <?php
                             getRoleList();
                            ?>
