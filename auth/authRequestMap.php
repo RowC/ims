@@ -50,7 +50,7 @@ include '../config/datasource.php';
         function sendFormData() {
             var data = new FormData($('#myForm')[0]); //this will select all the form data in the data variable.                                       
             $.ajax({
-                url: "authUserController.php",
+                url: "authRequestMapController.php",
                 type: "POST",
                 data: data,
                 contentType: false,

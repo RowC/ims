@@ -28,7 +28,7 @@ and open the template in the editor.
     </head>
     <body background="webapp/dist/imgs/bg-img.jpg">
         <!--<body class="bg-purple-gradient">-->
-        <a href="setting/adminDashboard.php">Admin Panel</a>
+        <!--<a href="setting/adminDashboard.php">Admin Panel</a>-->
         <div class="wrapper" style="margin-top: 15%;margin-left: 15%">
             <div class="container">
                 <div class="col-md-8">
