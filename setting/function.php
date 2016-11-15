@@ -11,7 +11,7 @@ function getRoleList() {
 
         echo "<tr>
                 <td width='10'> 
-                        <input type='checkbox' name='configAttribute[]' value='$role_id'  id='testDisabled'>
+                    <input type='checkbox' name='configAttribute[]' value='$role_id'>
                 </td>
                <td>$role_name</td>
             </tr>                            
