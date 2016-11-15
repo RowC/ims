@@ -1,3 +1,6 @@
-ALTER TABLE `auth_requestmap` ADD UNIQUE `unique_index`(`id`, `configAttribute`, `url`);
+ALTER TABLE `auth_requestmap` ADD UNIQUE `unique_index`(`config_attribute`, `url`);
 
-ALTER TABLE `auth_requestmap` ADD CONSTRAINT unique_index UNIQUE KEY (`id`, `configAttribute`, `url`)
+ALTER TABLE `auth_requestmap` ADD CONSTRAINT unique_index UNIQUE KEY ( `config_attribute`, `url`)
+
+ALTER TABLE Persons
+ADD UNIQUE (P_Id)
