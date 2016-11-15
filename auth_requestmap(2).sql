@@ -36,16 +36,6 @@ CREATE TABLE `auth_requestmap` (
   `modified_date` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `auth_requestmap`
---
-
-INSERT INTO `auth_requestmap` (`id`, `url`, `config_attribute`, `created_by`, `created_date`, `modified_by`, `modified_date`) VALUES
-(1, '/auth/authRequestMap.php', 1, NULL, '2016-11-15 07:49:45', NULL, NULL),
-(2, '/auth/authRequestMap.php', 2, NULL, '2016-11-15 07:50:03', NULL, NULL),
-(3, '/auth/authRequestMap.php', 2, NULL, '2016-11-15 07:50:03', NULL, NULL),
-(4, '/auth/authRequestMap.php', 2, NULL, '2016-11-15 07:53:35', NULL, NULL),
-(5, '/auth/authRequestMap.php', 2, NULL, '2016-11-15 07:53:35', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -54,9 +44,6 @@ INSERT INTO `auth_requestmap` (`id`, `url`, `config_attribute`, `created_by`, `c
 --
 -- Indexes for table `auth_requestmap`
 --
-ALTER TABLE `auth_requestmap`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `unique_url` (`config_attribute`,`url`),
 
 --
 -- AUTO_INCREMENT for dumped tables
