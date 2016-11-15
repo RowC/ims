@@ -4,3 +4,5 @@ ALTER TABLE `auth_requestmap` ADD CONSTRAINT unique_index UNIQUE KEY ( `config_a
 
 ALTER TABLE Persons
 ADD UNIQUE (P_Id)
+
+ALTER TABLE `votes` ADD UNIQUE `unique_index`(`user`, `email`, `address`);
