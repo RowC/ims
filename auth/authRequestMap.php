@@ -43,7 +43,7 @@ include '../setting/function.php';
         </label>
 
         <div class="col-sm-6">
-            <input type="uri" name="url" id="url"
+            <input type="text" name="url" id="url"
                      value="" class="form-control"/>
         </div>
     </div>
@@ -63,7 +63,7 @@ include '../setting/function.php';
     </div>-->
 
     <div class="form-group">
-        <label for="httpMethod" class="col-sm-2 control-label">Role
+        <label  class="col-sm-2 control-label">Role
             <span class="required-indicator">*</span>
         </label>
 
