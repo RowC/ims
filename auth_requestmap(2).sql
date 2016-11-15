@@ -1,0 +1,72 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 15, 2016 at 08:55 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 7.0.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `ims`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_requestmap`
+--
+
+CREATE TABLE `auth_requestmap` (
+  `id` int(11) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `config_attribute` int(11) NOT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` timestamp NULL DEFAULT NULL,
+  `modified_by` int(11) DEFAULT NULL,
+  `modified_date` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_requestmap`
+--
+
+INSERT INTO `auth_requestmap` (`id`, `url`, `config_attribute`, `created_by`, `created_date`, `modified_by`, `modified_date`) VALUES
+(1, '/auth/authRequestMap.php', 1, NULL, '2016-11-15 07:49:45', NULL, NULL),
+(2, '/auth/authRequestMap.php', 2, NULL, '2016-11-15 07:50:03', NULL, NULL),
+(3, '/auth/authRequestMap.php', 2, NULL, '2016-11-15 07:50:03', NULL, NULL),
+(4, '/auth/authRequestMap.php', 2, NULL, '2016-11-15 07:53:35', NULL, NULL),
+(5, '/auth/authRequestMap.php', 2, NULL, '2016-11-15 07:53:35', NULL, NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `auth_requestmap`
+--
+ALTER TABLE `auth_requestmap`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_url` (`config_attribute`,`url`),
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `auth_requestmap`
+--
+ALTER TABLE `auth_requestmap`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
