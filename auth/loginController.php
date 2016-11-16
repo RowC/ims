@@ -50,10 +50,10 @@ if (isset($_POST['sub'])) {
         $row = mysqli_fetch_array($result);
         $username = $row['userName'];
         $userRole = $row['userRole'];
-        if ($userRole == "ROLE_ADMIN") {
+        if ($userRole == "ROLE_ADMIN" && $username==$userName) {
             // echo $query."-username-".$username."-userRole-".$userRole."111";
             echo '<script>window.open("../setting/adminDashboard.php","_self")</script>';
-        } elseif ($userRole == "ROLE_USER") {
+        } elseif ($userRole == "ROLE_USER" && $username==$userName) {
              //echo $query."-username-".$username."-userRole-".$userRole."222";
             echo '<script>window.open("../setting/userProfile.php","_self")</script>';
         }
