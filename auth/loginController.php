@@ -20,7 +20,8 @@ if (isset($_POST['sub'])) {
 
     if ($userName && $encriptedPassword) {
         // User Entered fields
-        $query = "SELECT user_name FROM auth_user WHERE user_name = '$userName' AND password = '$encriptedPassword'"; // AND password = $userPass";
+        $query = "SELECT au.user_name as username,au.password as passwords,(SELECT ar.authority from auth_role as ar where ar.id = ur.auth_role) as rolename FROM `auth_user` as au,user_role as ur WHERE au.user_name = '$userName' AND au.password = '$encriptedPassword' AND au.id = ur.auth_user ";
+                //"SELECT user_name FROM auth_user WHERE user_name = '$userName' AND password = '$encriptedPassword'"; // AND password = $userPass";
 
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_array($result);
@@ -50,13 +51,21 @@ if (isset($_POST['sub'])) {
         $row = mysqli_fetch_array($result);
         $username = $row['userName'];
         $userRole = $row['userRole'];
-        if ($userRole == "ROLE_ADMIN" && $username==$userName) {
-            // echo $query."-username-".$username."-userRole-".$userRole."111";
-            echo '<script>window.open("../setting/adminDashboard.php","_self")</script>';
-        } elseif ($userRole == "ROLE_USER" && $username==$userName) {
-             //echo $query."-username-".$username."-userRole-".$userRole."222";
-            echo '<script>window.open("../setting/userProfile.php","_self")</script>';
+        $userUrl = $row['URL'];
+        if ($userRole && $username==$userName) {
+            //echo '..'.$userUrl;
+            echo '<script>window.open("'.$userUrl.'","_self")</script>';
+            
+        }  else {
+           echo "OH!!!!!sorry.........."; 
         }
+//        if ($userRole == "ROLE_ADMIN" && $username==$userName) {
+//            // echo $query."-username-".$username."-userRole-".$userRole."111";
+//            echo '<script>window.open("../setting/adminDashboard.php","_self")</script>';
+//        } elseif ($userRole == "ROLE_USER" && $username==$userName) {
+//             //echo $query."-username-".$username."-userRole-".$userRole."222";
+//            echo '<script>window.open("../setting/userProfile.php","_self")</script>';
+//        }
         }
       
     }
