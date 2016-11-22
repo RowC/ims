@@ -50,13 +50,12 @@ if (isset($_POST['sub'])) {
         $row = mysqli_fetch_array($result);
         $username = $row['userName'];
         $userRole = $row['userRole'];
-        $userPass = $row['password'];
         $userUrl = $row['URL'];
         if ($userRole && $username==$userName) {
             //echo '..'.$userUrl;
-             $_SESSION["username"] = $userName;
+             $_SESSION["username"] = $_POST['userName'];
+            $_SESSION["userPass"] = $encriptedPassword;
             $_SESSION["userRole"] = $userRole;
-            $_SESSION["userPass"] = $userPass;
             $_SESSION["userUrl"] = $userUrl;
             echo '<script>window.open("'.$userUrl.'","_self")</script>';
             
