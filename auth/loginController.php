@@ -37,8 +37,7 @@ if (isset($_POST['sub'])) {
     if (!$loggedIn) {
         echo '<script>alert("Sorry invalid user name or password.Please try again")</script>';
         return NULL;
-    } else {
-        $_SESSION["username"] = $userName;
+    } else {       
         $query = "SELECT DISTINCT au.user_name as `userName`,(SELECT arl.authority from `auth_role`as arl WHERE arl.id= ur.auth_role)as `userRole`,"
                 . "ar.url as `URL` FROM `auth_user`as au, `user_role` as ur, `auth_requestmap` as ar "
                 . "WHERE au.id=ur.auth_user AND ur.auth_role = ar.config_attribute AND au.user_name = '$userName' AND au.password = '$encriptedPassword'";
@@ -51,9 +50,14 @@ if (isset($_POST['sub'])) {
         $row = mysqli_fetch_array($result);
         $username = $row['userName'];
         $userRole = $row['userRole'];
+        $userPass = $row['password'];
         $userUrl = $row['URL'];
         if ($userRole && $username==$userName) {
             //echo '..'.$userUrl;
+             $_SESSION["username"] = $userName;
+            $_SESSION["userRole"] = $userRole;
+            $_SESSION["userPass"] = $userPass;
+            $_SESSION["userUrl"] = $userUrl;
             echo '<script>window.open("'.$userUrl.'","_self")</script>';
             
         }  else {

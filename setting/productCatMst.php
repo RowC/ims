@@ -1,6 +1,6 @@
 <?php
 include '../headerMenu.php';
-include '../config/datasource.php';
+//include '../config/datasource.php';
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
