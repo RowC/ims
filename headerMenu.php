@@ -2,6 +2,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
+include ('./config/datasource.php');
 ?>
 <!DOCTYPE html>
 <!--
@@ -29,84 +30,84 @@ and open the template in the editor.
         <link rel="stylesheet" href="../webapp/dist/css/skins/_all-skins.min.css">
         <link rel="stylesheet" href="webapp/plugins/select2/select2.min.css">
         <link rel="stylesheet" href="webapp/plugins/select2/select2.css">
-        
+
         <style type="text/css">
-/*            .skin-black .wrapper,
-.skin-black .main-sidebar,
-.skin-black .left-side {
-  background-color: #55acee !important;
-}*/
+            /*            .skin-black .wrapper,
+            .skin-black .main-sidebar,
+            .skin-black .left-side {
+              background-color: #55acee !important;
+            }*/
 
-/*.skin-blue .main-header .logo {
-    background-color: #55acee !important;
-}*/
+            /*.skin-blue .main-header .logo {
+                background-color: #55acee !important;
+            }*/
 
-.skin-blue .main-header .navbar {
-    background-color: #55acee !important;
-}
-.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
-    background-color:  #466482 !important;
-}
-.form-control{
-    height: 25px !important;
-}
-.borderColor{
-    border: 1px solid #ccc;
-}
-.selectBox{
-    width: 100%;
-    height: 25px;
-    border: 1px solid #ccc;
-}
-/*.cbox{border:1px solid red;background:yellow;}*/
-/*  input[type="radio"], 
-input[type="checkbox"] {
-    border: 1px solid #ccc !important;
-    background: -webkit-linear-gradient(#FCFCFC, #DADADA);
-    -webkit-appearance: none;
-    -webkit-transition: box-shadow 200ms;
-    
-}*/
-input[type="radio"], 
-input[type="checkbox"] {
-    height: 10px
-}
-.btn{
-    padding: .5px 6px !important;
-}
-input[type="text"]
-{
-    font-size:10px;
-}
-select
-{
-    font-size:10px;
-}
-textarea
-{
-     /*width: 300px;*/
- /*height: 100px;*/
- /*background-color: yellow;*/
- /*font-size: 1em;*/
- /*font-weight: bold;*/
- /*font-family: Verdana, Arial, Helvetica, sans-serif;*/
-    font-size:10px;
-}
-label{
-  font-size:10px;  
-}
- input[type="radio"],input[type=checkbox]
-{
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(1); /* IE */
-  -moz-transform: scale(1); /* FF */
-  -webkit-transform: scale(1); /* Safari and Chrome */
-  -o-transform: scale(1); /* Opera */
-  padding: 10px;
-}
-th{
-  font-size:10px;  
-}
+            .skin-blue .main-header .navbar {
+                background-color: #55acee !important;
+            }
+            .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+                background-color:  #466482 !important;
+            }
+            .form-control{
+                height: 25px !important;
+            }
+            .borderColor{
+                border: 1px solid #ccc;
+            }
+            .selectBox{
+                width: 100%;
+                height: 25px;
+                border: 1px solid #ccc;
+            }
+            /*.cbox{border:1px solid red;background:yellow;}*/
+            /*  input[type="radio"],
+            input[type="checkbox"] {
+                border: 1px solid #ccc !important;
+                background: -webkit-linear-gradient(#FCFCFC, #DADADA);
+                -webkit-appearance: none;
+                -webkit-transition: box-shadow 200ms;
+
+            }*/
+            input[type="radio"],
+            input[type="checkbox"] {
+                height: 10px
+            }
+            .btn{
+                padding: .5px 6px !important;
+            }
+            input[type="text"]
+            {
+                font-size:10px;
+            }
+            select
+            {
+                font-size:10px;
+            }
+            textarea
+            {
+                /*width: 300px;*/
+                /*height: 100px;*/
+                /*background-color: yellow;*/
+                /*font-size: 1em;*/
+                /*font-weight: bold;*/
+                /*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+                font-size:10px;
+            }
+            label{
+                font-size:10px;
+            }
+            input[type="radio"],input[type=checkbox]
+            {
+                /* Double-sized Checkboxes */
+                -ms-transform: scale(1); /* IE */
+                -moz-transform: scale(1); /* FF */
+                -webkit-transform: scale(1); /* Safari and Chrome */
+                -o-transform: scale(1); /* Opera */
+                padding: 10px;
+            }
+            th{
+                font-size:10px;
+            }
         </style>
     </head>
 
@@ -404,7 +405,7 @@ th{
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="header">MAIN NAVIGATION</li>
-                         <li class="treeview">
+                        <li class="treeview">
                             <a href="">
                                 <i class="fa fa-dashboard"></i> <span>Setting</span>
                                 <span class="pull-right-container">
@@ -412,9 +413,22 @@ th{
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="../auth/authRole.php"><i class="fa fa-circle-o"></i>Add Role</a></li>
+                                <?php
+                                $query = "SELECT DISTINCT au.user_name as `userName`,(SELECT arl.authority from `auth_role`as arl WHERE arl.id= ur.auth_role)as `userRole`,"
+                                        . "ar.url as `URL` FROM `auth_user`as au, `user_role` as ur, `auth_requestmap` as ar "
+                                        . "WHERE au.id=ur.auth_user AND ur.auth_role = ar.config_attribute AND au.user_name = '".$_SESSION['username']."'";
+
+                                $result = mysqli_query($conn, $query);
+                                $row = mysqli_fetch_array($result);
+                                if ($_SESSION["username"] == $row['user_name'] && $_SESSION["userRole"] == $row['user_role']) {
+                                    echo '
+                                     <li><a href="../auth/authRole.php"><i class="fa fa-circle-o"></i>Add Role</a></li>
                                 <li class=""><a href="../auth/authUser.php"><i class="fa fa-circle-o"></i>Add User</a></li>
                                 <li class=""><a href="../auth/authRequestMap.php"><i class="fa fa-circle-o"></i>Add Requestmap</a></li>
+                                    ';
+                                }
+                                ?>
+
                             </ul>
                         </li>
                         <li class="treeview">
@@ -440,7 +454,7 @@ th{
                             <ul class="treeview-menu">
                                 <li><a href="dynamicTable.php"><i class="fa fa-circle-o"></i>D Table One</a></li>
                                 <li><a href="dynamicTableTwo.php"><i class="fa fa-circle-o"></i>D Table Two</a></li>
-                                 <li><a href="mail.php"><i class="fa fa-circle-o"></i> Mail</a></li>
+                                <li><a href="mail.php"><i class="fa fa-circle-o"></i> Mail</a></li>
                                 <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
                             </ul>
                         </li>
@@ -590,4 +604,4 @@ th{
                 <!-- /.sidebar -->
             </aside>
             <!-- Content Wrapper. Contains page content -->
-           
+
