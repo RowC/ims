@@ -11,7 +11,7 @@ if (isset($_POST['role'])) {
     }
     // if no error occured, continue ....
     if (!isset($errMSG)) {
-        $sql = "INSERT INTO auth_role (authority,description,create_date,create_by) VALUES('$role','$description',now(),null)";
+        $sql = "INSERT INTO auth_role (authority,description,created_date,created_by) VALUES('$role','$description',now(),null)";
         $insert_pro = mysqli_query($conn, $sql);
         echo 'Data saved successfully!!!!';
         if (!$conn) {
