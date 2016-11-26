@@ -431,10 +431,9 @@ and open the template in the editor.
                                 <li class=""><a href="../auth/authRequestMap.php"><i class="fa fa-circle-o"></i>Add Requestmap</a></li>
                                     ';
                                 }  else {                                    
-                                    echo 'Hello'.$_SESSION["username"]."=>".$username."====".$_SESSION["userRole"]."=>".$userRole."===".$_SESSION["userPass"];
+                                    echo $_SESSION["userRole"]."=>".$userRole;
                                 }
                                 ?>
-
                             </ul>
                         </li>
                         <li class="treeview">
