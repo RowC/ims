@@ -53,10 +53,11 @@ if (isset($_POST['sub'])) {
         $username = $row['userName'];
         $userUrl = $row['URL'];
         if ($userRole && $username==$userName) {            
-         $searchRoleByUser = "select ar.authority as `role_name` from auth_role as `ar`,user_role as `ur` where ar.id=ur.auth_role and auth_user=".$userID."";
+         $searchRoleByUser = "select ar.id as `role_id`, ar.authority as `role_name` from auth_role as `ar`,user_role as `ur` where ar.id=ur.auth_role and auth_user=".$userID."";
          $resultSearchRoleByUser = mysqli_query($conn, $searchRoleByUser);
         $rowResultSearchRoleByUser = mysqli_fetch_array($resultSearchRoleByUser);        
-        $userRoleFromUserRole = $rowResultSearchRoleByUser['role_name'];
+//        $userRoleFromUserRole = $rowResultSearchRoleByUser['role_name'];
+        $userRoleFromUserRole = $rowResultSearchRoleByUser['role_id'];
             //echo '..'.$userUrl;
              $_SESSION["username"] = $_POST['userName'];
             $_SESSION["userPass"] = $encriptedPassword;

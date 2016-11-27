@@ -414,7 +414,7 @@ and open the template in the editor.
                             </a>
                             <ul class="treeview-menu">
                                 <?php
-                                $query = "SELECT DISTINCT au.user_name as `userName`,(SELECT arl.authority from `auth_role`as arl WHERE arl.id= ur.auth_role)as `userRole`,"
+                                $query = "SELECT DISTINCT au.user_name as `userName`,(SELECT arl.id from `auth_role`as arl WHERE arl.id= ur.auth_role)as `userRole`,"
                                         . "ar.url as `URL` FROM `auth_user`as au, `user_role` as ur, `auth_requestmap` as ar "
                                         . "WHERE au.id=ur.auth_user AND ur.auth_role = ar.config_attribute AND au.user_name = '" . $_SESSION['username'] . "'AND au.password = '".$_SESSION["userPass"]."'";
 
@@ -425,11 +425,12 @@ and open the template in the editor.
                                 //$userPass = $row['password'];
                                 $userUrl = $row['URL'];
                                 if ($_SESSION["username"] == $username && $_SESSION["userRole"] == $userRole && $userUrl) {
-                                     echo '
-                                     <li><a href="../auth/authRole.php"><i class="fa fa-circle-o"></i>Add Role</a></li>
-                                <li class=""><a href="../auth/authUser.php"><i class="fa fa-circle-o"></i>Add User</a></li>
-                                <li class=""><a href="../auth/authRequestMap.php"><i class="fa fa-circle-o"></i>Add Requestmap</a></li>
-                                    ';
+                                     echo $_SESSION["userRole"]."=>".$userRole;
+//                                     echo '
+//                                     <li><a href="../auth/authRole.php"><i class="fa fa-circle-o"></i>Add Role</a></li>
+//                                <li class=""><a href="../auth/authUser.php"><i class="fa fa-circle-o"></i>Add User</a></li>
+//                                <li class=""><a href="../auth/authRequestMap.php"><i class="fa fa-circle-o"></i>Add Requestmap</a></li>
+//                                    ';
                                 }  else {                                    
                                     echo $_SESSION["userRole"]."=>".$userRole;
                                 }
