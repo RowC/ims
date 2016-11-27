@@ -20,25 +20,26 @@ if (isset($_POST['sub'])) {
 
     if ($userName && $encriptedPassword) {
         // User Entered fields
-        $query = "SELECT au.user_name as username,au.password as passwords,(SELECT ar.authority from auth_role as ar where ar.id = ur.auth_role) as rolename FROM `auth_user` as au,user_role as ur WHERE au.user_name = '$userName' AND au.password = '$encriptedPassword' AND au.id = ur.auth_user ";
+        $query = "SELECT au.id as `user_id`, au.user_name as username,au.password as passwords,(SELECT ar.authority from auth_role as ar where ar.id = ur.auth_role) as rolename FROM `auth_user` as au,user_role as ur WHERE au.user_name = '$userName' AND au.password = '$encriptedPassword' AND au.id = ur.auth_user ";
                 //"SELECT user_name FROM auth_user WHERE user_name = '$userName' AND password = '$encriptedPassword'"; // AND password = $userPass";
 
         $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_array($result);
+        $rowUser = mysqli_fetch_array($result);
+        $userID = $rowUser['user_id'];
 
-        if (!$row) {
+        if (!$rowUser) {
             echo '<script>alert("No existing user or wrong password.")</script>';
              echo '<script>window.open("../index.php","_self")</script>';
             return NULL;
         } else
             $loggedIn = true;
-    }
+//    }
 
     if (!$loggedIn) {
         echo '<script>alert("Sorry invalid user name or password.Please try again")</script>';
         return NULL;
     } else {       
-        $query = "SELECT DISTINCT au.user_name as `userName`,(SELECT arl.authority from `auth_role`as arl WHERE arl.id= ur.auth_role)as `userRole`,"
+        $query = "SELECT DISTINCT au.user_name as `userName`,au.id as `id`,(SELECT arl.authority from `auth_role`as arl WHERE arl.id= ur.auth_role)as `userRole`,"
                 . "ar.url as `URL` FROM `auth_user`as au, `user_role` as ur, `auth_requestmap` as ar "
                 . "WHERE au.id=ur.auth_user AND ur.auth_role = ar.config_attribute AND au.user_name = '$userName' AND au.password = '$encriptedPassword'";
       
@@ -48,14 +49,18 @@ if (isset($_POST['sub'])) {
     exit();
         }  else { 
         $row = mysqli_fetch_array($result);
+       $userRole = $row['userRole'];
         $username = $row['userName'];
-        $userRole = $row['userRole'];
         $userUrl = $row['URL'];
-        if ($userRole && $username==$userName) {
+        if ($userRole && $username==$userName) {            
+         $searchRoleByUser = "select ar.authority as `role_name` from auth_role as `ar`,user_role as `ur` where ar.id=ur.auth_role and auth_user=".$userID."";
+         $resultSearchRoleByUser = mysqli_query($conn, $searchRoleByUser);
+        $rowResultSearchRoleByUser = mysqli_fetch_array($resultSearchRoleByUser);        
+        $userRoleFromUserRole = $rowResultSearchRoleByUser['role_name'];
             //echo '..'.$userUrl;
              $_SESSION["username"] = $_POST['userName'];
             $_SESSION["userPass"] = $encriptedPassword;
-            $_SESSION["userRole"] = $userRole;
+            $_SESSION["userRole"] = $userRoleFromUserRole;
             $_SESSION["userUrl"] = $userUrl;
             echo '<script>window.open("'.$userUrl.'","_self")</script>';
             
@@ -71,6 +76,7 @@ if (isset($_POST['sub'])) {
 //        }
         }
       
+    }
     }
 }
 ?>
