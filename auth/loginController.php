@@ -57,7 +57,7 @@ if (isset($_POST['sub'])) {
          $resultSearchRoleByUser = mysqli_query($conn, $searchRoleByUser);
         $rowResultSearchRoleByUser = mysqli_fetch_array($resultSearchRoleByUser);        
 //        $userRoleFromUserRole = $rowResultSearchRoleByUser['role_name'];
-        $userRoleFromUserRole = $rowResultSearchRoleByUser['role_id'];
+        $userRoleFromUserRole = $rowResultSearchRoleByUser['role_name'];
             //echo '..'.$userUrl;
              $_SESSION["username"] = $_POST['userName'];
             $_SESSION["userPass"] = $encriptedPassword;

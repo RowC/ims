@@ -1,6 +1,5 @@
 <?php
 include '../headerMenu.php';
-include '../config/datasource.php';
 ?>
 
 <div class="content-wrapper">
