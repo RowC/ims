@@ -3,6 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 include ('config/datasource.php');
+include '../setting/function.php';
 ?>
 <!DOCTYPE html>
 <!--
