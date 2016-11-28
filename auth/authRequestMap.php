@@ -1,6 +1,5 @@
 <?php
 include '../headerMenu.php';
-include '../setting/function.php';
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
