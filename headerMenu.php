@@ -111,7 +111,8 @@ and open the template in the editor.
         </style>
     </head>
 
-    <body class="hold-transition skin-blue sidebar-mini">
+    <!--<body class="hold-transition skin-blue sidebar-mini">-->
+    <body class="hold-transition skin-blue-light sidebar-mini">
         <div class="wrapper">
             <header class="main-header">
 
@@ -405,48 +406,119 @@ and open the template in the editor.
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="header">MAIN NAVIGATION</li>
-                        <li class="treeview">
+                        <?php
+                        if ($_SESSION["userRole"] == "ROLE_ADMIN") {
+                            echo ' <li class="treeview">
                             <a href="">
-                                <i class="fa fa-dashboard"></i> <span>Setting</span>
+                                <i class="fa fa-laptop"></i> <span>Sytem</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">';
+
+                            $query = "SELECT DISTINCT au.user_name as `userName`,(SELECT arl.id from `auth_role`as arl WHERE arl.id= ur.auth_role)as `userRole`,"
+                                    . "ar.url as `URL` FROM `auth_user`as au, `user_role` as ur, `auth_requestmap` as ar "
+                                    . "WHERE au.id=ur.auth_user AND ur.auth_role = ar.config_attribute AND au.user_name = '" . $_SESSION['username'] . "'AND au.password = '" . $_SESSION["userPass"] . "'";
+
+                            $result = mysqli_query($conn, $query);
+                            $row = mysqli_fetch_array($result);
+                            $username = $row['userName'];
+                            $userRole = $row['userRole'];
+                            //$userPass = $row['password'];
+                            $userUrl = $row['URL'];
+//                                if ($_SESSION["username"] == $username && $_SESSION["userRole"] == $userRole && $userUrl) {
+                            if ($_SESSION["username"] == $username && $_SESSION["userRole"] == "ROLE_ADMIN" && $userUrl) {
+                                // echo $_SESSION["userRole"]."=>".$userRole;
+                                echo '
+                                     <li><a href="@"><i class="fa fa-circle-o"></i>Add Role</a></li>
+                                <li class=""><a href="../auth/authUser.php">
+                                <i class="fa fa-user"></i>  
+                                <span>Add User</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>                                
+                                    </a>
+                                <ul class="treeview-menu">
+                                 <li class=""><a href="../auth/authUser.php"><i class="fa fa-user-plus"></i>Add User</a></li>
+                                 <li class=""><a href="../auth/userList.php"><i class="fa fa-list"></i>User List</a></li>
+                                </ul>
+                                </li>
+                                <li class=""><a href="../auth/authRequestMap.php"><i class="fa fa-circle-o"></i>Add Requestmap</a></li>
+                                    ';
+                            }
+//                                else {                                   
+//////                                    echo $_SESSION["userRole"]."=>".$userRole;
+//                                    echo $username;
+//                                }
+
+                            echo '  </ul>
+                        </li>';
+                        }
+                        ?>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cog"></i> <span>Setting</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <?php
-                                $query = "SELECT DISTINCT au.user_name as `userName`,(SELECT arl.id from `auth_role`as arl WHERE arl.id= ur.auth_role)as `userRole`,"
-                                        . "ar.url as `URL` FROM `auth_user`as au, `user_role` as ur, `auth_requestmap` as ar "
-                                        . "WHERE au.id=ur.auth_user AND ur.auth_role = ar.config_attribute AND au.user_name = '" . $_SESSION['username'] . "'AND au.password = '".$_SESSION["userPass"]."'";
-
-                                $result = mysqli_query($conn, $query);
-                                $row = mysqli_fetch_array($result);
-                                $username = $row['userName'];
-                                $userRole = $row['userRole'];
-                                //$userPass = $row['password'];
-                                $userUrl = $row['URL'];
-                                if ($_SESSION["username"] == $username && $_SESSION["userRole"] == $userRole && $userUrl) {
-                                     echo $_SESSION["userRole"]."=>".$userRole;
-//                                     echo '
-//                                     <li><a href="../auth/authRole.php"><i class="fa fa-circle-o"></i>Add Role</a></li>
-//                                <li class=""><a href="../auth/authUser.php"><i class="fa fa-circle-o"></i>Add User</a></li>
-//                                <li class=""><a href="../auth/authRequestMap.php"><i class="fa fa-circle-o"></i>Add Requestmap</a></li>
-//                                    ';
-                                }  else {                                    
-                                    echo $_SESSION["userRole"]."=>".$userRole;
-                                }
-                                ?>
+                                <li><a href="@"><i class="fa fa-industry"></i>Storage Loc
+                                <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li class=""><a href="../setting/storageLoc.php"><i class="fa fa-plus"></i>Entry Form</a> </li>
+                                        <li class=""><a href="storageLocList.php"><i class="fa fa-list"></i>List</a> </li>
+                                    </ul>
+                                </li>
+                                <li class=""><a href="@"><i class="fa fa-balance-scale"></i>Measurement Units
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li class=""><a href="uom.php"><i class="fa fa-plus"></i>Entry Form</a> </li>
+                                        <li class=""><a href="uomList.php"><i class="fa fa-list"></i>List</a> </li>
+                                    </ul>
+                                </li>
+                                <li class=""><a href="@"><i class="fa fa-circle-o"></i>Item Category</a></li>
+                                <li class="treeview"><a href="@"><i class="fa fa-circle-o"></i>Item
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="productCatMst.php"><i class="fa fa-circle-o"></i>Add Item</a></li>
+                                        <li class=""><a href="productCatMstList.php"><i class="fa fa-list"></i>Item List</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>Product Information</span>
+                                <i class="fa fa-recycle"></i> <span>Adjustment</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="productCatMst.php"><i class="fa fa-circle-o"></i>Add Product</a></li>
-                                <li class=""><a href="productCatMstList.php"><i class="fa fa-circle-o"></i>Product List</a></li>
+                                <li class=""><a href="productCatMstList.php"><i class="fa fa-circle-o"></i>Opening Stock Entry</a></li>
+                                <li><a href="productCatMst.php"><i class="fa fa-circle-o"></i>Inventory Adjustment</a></li>
+                                <li class=""><a href="productCatMstList.php"><i class="fa fa-circle-o"></i>Stock Transfer</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-file-text-o"></i> <span>Report</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class=""><a href="productCatMstList.php"><i class="fa fa-bar-chart"></i>Item wise stock status</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
