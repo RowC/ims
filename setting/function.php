@@ -1,5 +1,5 @@
 <?php
-include ('../config/datasource.php');
+//include ('../config/datasource.php');
 
 function getRoleList() {
     global $conn;
