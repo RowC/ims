@@ -385,15 +385,18 @@ and open the template in the editor.
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="../webapp/dist/imgs/avatar3.png" class="img-circle" alt="User Image">
+                            <img src="../webapp/dist/imgs/avatar3.png" class="img-circle" alt="">
                         </div>
                         <div class="pull-left info">
                             <p>Alexander Pierce</p>
-                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a><br>
                         </div>
+                        
                     </div>
+                    
+     
                     <!-- search form -->
-                    <form action="#" method="get" class="sidebar-form">
+<!--                    <form action="#" method="get" class="sidebar-form">
                         <div class="input-group">
                             <input type="text" name="q" class="form-control" placeholder="Search...">
                             <span class="input-group-btn">
@@ -401,11 +404,11 @@ and open the template in the editor.
                                 </button>
                             </span>
                         </div>
-                    </form>
+                    </form>-->
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="header">MAIN NAVIGATION</li>
+                        <!--<li class="header">MAIN NAVIGATION</li>-->
                         <?php
                         if ($_SESSION["userRole"] == "ROLE_ADMIN") {
                             echo ' <li class="treeview">
@@ -440,8 +443,8 @@ and open the template in the editor.
                                 </span>                                
                                     </a>
                                 <ul class="treeview-menu">
-                                 <li class=""><a href="../auth/authUser.php"><i class="fa fa-user-plus"></i>Add User</a></li>
-                                 <li class=""><a href="../auth/userList.php"><i class="fa fa-list"></i>User List</a></li>
+                                 <li class=""><a href="../auth/authUser.php"><i class="fa fa-user-plus"></i>Enter Form</a></li>
+                                 <li class=""><a href="../auth/userList.php"><i class="fa fa-list"></i>List</a></li>
                                 </ul>
                                 </li>
                                 <li class=""><a href="../auth/authRequestMap.php"><i class="fa fa-circle-o"></i>Add Requestmap</a></li>
@@ -484,15 +487,24 @@ and open the template in the editor.
                                         <li class=""><a href="uomList.php"><i class="fa fa-list"></i>List</a> </li>
                                     </ul>
                                 </li>
-                                <li class=""><a href="@"><i class="fa fa-circle-o"></i>Item Category</a></li>
+                                <li class=""><a href="@"><i class="fa fa-circle-o"></i>Item Category
+                                    <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                  <ul class="treeview-menu">
+                                        <li><a href="productCatMst.php"><i class="fa fa-plus"></i>Entry Form</a></li>
+                                        <li class=""><a href="productCatMstList.php"><i class="fa fa-list"></i>List</a></li>
+                                    </ul>
+                                </li>
                                 <li class="treeview"><a href="@"><i class="fa fa-circle-o"></i>Item
                                         <span class="pull-right-container">
                                             <i class="fa fa-angle-left pull-right"></i>
                                         </span>
                                     </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="productCatMst.php"><i class="fa fa-circle-o"></i>Add Item</a></li>
-                                        <li class=""><a href="productCatMstList.php"><i class="fa fa-list"></i>Item List</a></li>
+                                        <li><a href="productCatMst.php"><i class="fa fa-plus"></i>Entry Form</a></li>
+                                        <li class=""><a href="productCatMstList.php"><i class="fa fa-list"></i>List</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -536,7 +548,7 @@ and open the template in the editor.
                                 <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
                             </ul>
                         </li>
-                        <li>
+<!--                        <li>
                             <a href="pages/widgets.html">
                                 <i class="fa fa-th"></i> <span>Widgets</span>
                                 <span class="pull-right-container">
@@ -676,10 +688,17 @@ and open the template in the editor.
                         <li class="header">LABELS</li>
                         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
                         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-                        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>-->
                     </ul>
                 </section>
                 <!-- /.sidebar -->
             </aside>
             <!-- Content Wrapper. Contains page content -->
 
+            <script type="text/javascript">
+//            $(document).ready(function(){
+//                $(".treeview").on("click",function (){
+//                     $(this).toggleClass('active')
+//                });
+//            });
+            </script>
