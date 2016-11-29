@@ -1,0 +1,15 @@
+to send email we need to configer 2 file in php(xampp folder)
+1>php.ini
+2>sendmail.ini
+
+php.ini
+=======
+sendmail_path ="\"C:\xampp\sendmail\sendmail.exe\" -t"
+max_execution_time=360
+max_input_time=120
+memory_limit=128M
+
+sendmail.ini
+============
+smtp_server=smtp.gmail.com 
+smtp_port=465
