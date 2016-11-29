@@ -476,6 +476,7 @@ and open the template in the editor.
                                     <ul class="treeview-menu">
                                         <li class=""><a href="../setting/storageLoc.php"><i class="fa fa-plus"></i>Entry Form</a> </li>
                                         <li class=""><a href="storageLocList.php"><i class="fa fa-list"></i>List</a> </li>
+                                        <li class=""><a href="../setting/storageLoc.php"><i class="fa fa-list"></i>List</a> </li>
                                     </ul>
                                 </li>
                                 <li class=""><a href="@"><i class="fa fa-balance-scale"></i>Measurement Units
