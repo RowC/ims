@@ -109,6 +109,12 @@ and open the template in the editor.
             th{
                 font-size:10px;
             }
+            .input-control{
+               width: 70%;
+            }
+            .textArea-control{
+               width: 90%;
+            }
         </style>
     </head>
 
@@ -476,7 +482,7 @@ and open the template in the editor.
                                     <ul class="treeview-menu">
                                         <li class=""><a href="../setting/storageLoc.php"><i class="fa fa-plus"></i>Entry Form</a> </li>
                                         <li class=""><a href="storageLocList.php"><i class="fa fa-list"></i>List</a> </li>
-                                        <li class=""><a href="../setting/storageLoc.php"><i class="fa fa-list"></i>List</a> </li>
+                                        <li class=""><a href="../setting/invLoc.php"><i class="fa fa-list"></i>Inv Loc</a> </li>
                                     </ul>
                                 </li>
                                 <li class=""><a href="@"><i class="fa fa-balance-scale"></i>Measurement Units
