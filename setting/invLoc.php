@@ -15,7 +15,11 @@ include '../headerMenu.php';
     <!-- Main content -->
     <section class="content">
         <div class="box info">
-            <div class="box-header">Inv Loc List</div>
+            <div class="box-header">Inv Loc List
+                <form>
+                    <label>Location:</label><input type="text" name="" value="">
+                </form>
+            </div>
             <div class="box-body">
                 <table class="table table-bordered table-striped table-hover table-condensed display nowrap th-center">
                     <thead class="bg-orange">
