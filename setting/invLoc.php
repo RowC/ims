@@ -46,11 +46,11 @@ include '../headerMenu.php';
         </div>
         
         <hr>
-        <div class="box" style="margin-left: 10%">
+        <div class="box" style="margin-left: 20%;width: 60%">
             <form>
                  <div class="box-header">Inv Loc Entry Form</div>
             <div class="box-body">
-                <table style="background-color: #bbb; width: 50%" class="table-bordered  table-condensed display nowrap th-center">
+                <table style="background-color: #bbb; width: 100%" class="table-bordered  table-condensed display nowrap th-center">
                     <tr>
                         <th style="width: 28%">Location Code:</th>
                         <td><input type="text" name="invLoc" class="input-control"></td>
