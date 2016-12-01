@@ -4,7 +4,7 @@ include '../headerMenu.php';
 <div class="content-wrapper">   
     <section class="content-header">
         <h1>
-            Inventory Location
+            Item Details
         </h1>
         <ol class="breadcrumb">
             <li><a href="../index.php"><i class="fa fa-home"></i> Home</a></li>
@@ -12,9 +12,8 @@ include '../headerMenu.php';
             <!--<li class="active">Dashboard</li>-->
         </ol>
     </section>
-    <!-- Main content -->
     <section class="content">
-        <div class="box info">
+                <div class="box info">
             <div class="box-header">
                 <form>
                     <div class="form-group">
@@ -38,14 +37,17 @@ include '../headerMenu.php';
                 </form>
             </div>
             <div class="box-body">
-                <table class="table table-bordered table-striped table-hover th-center">
+                <table class="table table-bordered table-striped table-hover nowrap th-center">
                     <thead class="bg-orange">
                         <tr>
-                            <th>Location Code</th>
-                            <th>Location Name</th>
-                            <th> Address</th>
-                            <th>Phone</th>
-                            <th>Secondary Name</th>
+                            <th>Item Code</th>
+                            <th>Item Name</th>
+                            <th>Item Description</th>
+                            <th>Quantity</th>
+                            <th>Unit of Measure</th>
+                            <th>Item Type </th>
+                            <th>Item Tax Type </th>
+                            <th>Exclude From Sales</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -60,6 +62,9 @@ include '../headerMenu.php';
                             <td>5</td>
                             <td>6</td>
                             <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
                         </tr>
                     </tbody>
                 </table>
@@ -69,37 +74,26 @@ include '../headerMenu.php';
         <hr>
         <div class="box" style="margin-left: 20%;width: 60%">
             <form>
-                <div class="box-header">Inv Loc Entry Form</div>
+                <div class="box-header">Inv Category Entry Form</div>
                 <div class="box-body">
                     <table style="background-color: #bbb; width: 100%" class="table-bordered  table-condensed display nowrap th-center">
                         <tr>
-                            <th style="width: 28%">Location Code:</th>
+                            <th style="width: 28%">Item Type:</th>
                             <td><input type="text" name="invLoc" class="input-control"></td>
                         </tr>                    
                         <tr>
-                            <th>Location Name:</th>
-                            <td><input type="text" name="invName" class="input-control"></td>
+                            <th>Unit of Measure:</th>
+                                    <td><select>
+                                            <option>Kg</option>
+                                            <option>Liter</option>
+                                            <option>Dazon</option>
+                                </select></td>
                         </tr>                  
                         <tr>
-                            <th>Address:</th>
-                            <td><textarea type="text" name="address" class="textArea-control"></textarea></td>
+                            <th>Exclude From Sales:</th>
+                            <td><input type="checkbox" name="phone" class="input-control" style="margin-left: -33.2%"></td>
                         </tr>                   
-                        <tr>
-                            <th>Phone:</th>
-                            <td><input type="text" name="phone" class="input-control"></td>
-                        </tr>  
-                        <tr>
-                            <th>Secondary Name:</th>
-                            <td><input type="text" name="secondaryName" class="input-control"></td>
-                        </tr>  
-                        <tr>
-                            <th>Edit:</th>
-                            <td><input type="text" name="secondaryName" class="input-control"></td>
-                        </tr>  
-                        <tr>
-                            <th>Email:</th>
-                            <td><input type="text" name="secondaryName" class="input-control"></td>
-                        </tr>  
+                       
                     </table>
                 </div>
                 <div class="box-footer">
