@@ -492,6 +492,7 @@ and open the template in the editor.
                                     </a>
                                     <ul class="treeview-menu">
                                         <li class=""><a href="uom.php"><i class="fa fa-plus"></i>Entry Form</a> </li>
+                                        <li class=""><a href="../setting/itemMeasureUnit.php"><i class="fa fa-plus"></i>Unit Of Measurement</a> </li>
                                         <li class=""><a href="uomList.php"><i class="fa fa-list"></i>List</a> </li>
                                     </ul>
                                 </li>
@@ -501,6 +502,7 @@ and open the template in the editor.
                                         </span>
                                     </a>
                                   <ul class="treeview-menu">
+                                        <li><a href="../setting/itemCategory.php"><i class="fa fa-plus"></i>Category Entry Form</a></li>
                                         <li><a href="productCatMst.php"><i class="fa fa-plus"></i>Entry Form</a></li>
                                         <li class=""><a href="productCatMstList.php"><i class="fa fa-list"></i>List</a></li>
                                     </ul>
@@ -512,6 +514,7 @@ and open the template in the editor.
                                     </a>
                                     <ul class="treeview-menu">
                                         <li><a href="productCatMst.php"><i class="fa fa-plus"></i>Entry Form</a></li>
+                                        <li><a href="../setting/itemDetails.php"><i class="fa fa-plus"></i>Item Entry Form</a></li>
                                         <li class=""><a href="productCatMstList.php"><i class="fa fa-list"></i>List</a></li>
                                     </ul>
                                 </li>
