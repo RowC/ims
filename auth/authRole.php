@@ -25,13 +25,13 @@ include '../headerMenu.php';
                     <div class="form-group">
                         <label for="role" class="col-sm-2 control-label">Title</label>                            
                         <div class="col-md-6">
-                            <input type="text" name="role" value="" class="form-control"/>
+                            <input type="text" name="role" value="" class="form-control-customs"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="description" class="col-sm-2 control-label">Description</label>
                         <div class="col-md-6">
-                            <textarea  name="description" value="" class="form-control"></textarea>
+                            <textarea  name="description" value="" class="form-control-customs"></textarea>
                         </div>
                     </div>
                 </div>

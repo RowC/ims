@@ -43,7 +43,7 @@ include '../headerMenu.php';
 
         <div class="col-sm-6">
             <input type="text" name="url" id="url"
-                     value="" class="form-control"/>
+                     value="" class="form-control-customs"/>
         </div>
     </div>
 

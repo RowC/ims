@@ -26,37 +26,37 @@ include '../headerMenu.php';
                     <div class="form-group">
                         <label for="fullName" class="col-sm-2 control-label">Full Name</label>                            
                         <div class="col-md-6">
-                            <input type="text" id="fullName" name="fullName" value="" class="form-control"/>
+                            <input type="text" id="fullName" name="fullName" value="" class="form-control-customs"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="userName" class="col-sm-2 control-label">User Name</label>
                         <div class="col-md-6">
-                            <input type="text"  id="userName" name="userName" value="" class="form-control"/>
+                            <input type="text"  id="userName" name="userName" value="" class="form-control-customs"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-sm-2 control-label">Password</label>
                         <div class="col-md-6">
-                            <input type="text"  id="password" name="password" value="" class="form-control"/>
+                            <input type="text"  id="password" name="password" value="" class="form-control-customs"/>
                         </div>
                     </div>                    
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email</label>
                         <div class="col-md-6">
-                            <input type="email"  id="email" name="email" value="" class="form-control"/>
+                            <input type="email"  id="email" name="email" value="" class="form-control-customs"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="cellNo" class="col-sm-2 control-label">Cell No.</label>
                         <div class="col-md-6">
-                            <input type="text"  id="cellNo" name="cellNo" value="" class="form-control"/>
+                            <input type="text"  id="cellNo" name="cellNo" value="" class="form-control-customs"/>
                         </div>
                     </div>                    
                     <div class="form-group">
                         <label for="role" class="col-sm-2 control-label">Role</label>
                         <div class="col-md-6">
-                            <select class="form-control select2" id="roleId" name="roleId[]" multiple="multiple">
+                            <select class="form-control-customs select2" id="roleId" name="roleId[]" multiple="multiple">
                                 <option value="">Select One</option>
                                 <?php
                                 $sql = "select * from auth_role";
