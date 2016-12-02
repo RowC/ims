@@ -39,8 +39,8 @@ and open the template in the editor.
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class=" col-md-12" >
-                                            <input type="text" name="userName" placeholder="User Name" class="form-control" style="background-color: transparent;"/><br>
-                                            <input type="password" name="password" placeholder="Password" class="form-control" style="background-color: transparent;"/>
+                                            <input type="text" name="userName" placeholder="User Name" class="form-control-customs" style="background-color: transparent;"/><br>
+                                            <input type="password" name="password" placeholder="Password" class="form-control-customs" style="background-color: transparent;"/>
                                         </div>
                                     </div>                    
                                 </div>  
