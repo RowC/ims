@@ -33,6 +33,37 @@ and open the template in the editor.
         <link rel="stylesheet" href="webapp/plugins/select2/select2.css">
 
         <style type="text/css">
+            .table-striped1>tbody>tr:nth-of-type(odd){border: 1px solid #000}
+            .btnCustom{
+                border-radius: 1px;
+                padding: 0.5px 6px !important;
+                webkit-box-shadow: none;
+                box-shadow: none;
+                border: 1px solid transparent;
+            }
+            .btnfile{
+                border-radius: 1px;
+                padding: 0.5px 6px !important;
+                webkit-box-shadow: none;
+                box-shadow: none;
+                border: 1px solid transparent;
+            }
+            .boxCustom{
+                position: relative;
+                border-radius: 3px;
+                background: #ffffff;
+                /*border-top: 3px solid #d2d6de;*/
+                margin-bottom: 20px;
+                width: 100%;
+                box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+            }
+            body{
+                font-family: Tahoma
+            }
+            .content-header > h3 {
+    margin: 0;
+    font-size: 20px;
+}
             /*            .skin-black .wrapper,
             .skin-black .main-sidebar,
             .skin-black .left-side {
@@ -49,7 +80,7 @@ and open the template in the editor.
             .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
                 background-color:  #466482 !important;
             }
-            .form-control{
+            .form-control-customs{
                 height: 25px !important;
             }
             .borderColor{
@@ -78,24 +109,33 @@ and open the template in the editor.
             }
             input[type="text"]
             {
-                font-size:10px;
+                font-size:12px;
+                 background-color:#f9f6f6
+                /*background-color: #ccc readonly*/
+                /*background-color:rgb(255,255,235)*/                    
+                    /*background-color: rgb(255,255,235)*/
             }
             select
             {
                 font-size:10px;
+                padding: 0px
+                /*background-color: #ccc*/
             }
             textarea
             {
                 /*width: 300px;*/
-                /*height: 100px;*/
+                height: 100px;
                 /*background-color: yellow;*/
                 /*font-size: 1em;*/
                 /*font-weight: bold;*/
                 /*font-family: Verdana, Arial, Helvetica, sans-serif;*/
-                font-size:10px;
+                font-size:12px;
+                /*background-color: #ccc*/
             }
             label{
-                font-size:10px;
+                font-size:12px;
+                font-weight: normal;
+
             }
             input[type="radio"],input[type=checkbox]
             {
@@ -110,11 +150,68 @@ and open the template in the editor.
                 font-size:10px;
             }
             .input-control{
-               width: 70%;
+                width: 70%;
             }
             .textArea-control{
-               width: 90%;
+                width: 90%;
             }
+            .table > tbody > tr > td, 
+            .table > tbody > tr > th,
+            .table > tfoot > tr > td, 
+            .table > tfoot > tr > th {
+                padding: 0px;
+                line-height: 1.42857143;
+                vertical-align: top;
+                border-top: 1px solid #ddd
+            }
+            
+            .table > thead > tr > td, 
+            .table > thead > tr > th{
+               padding: 5px;
+                line-height: 1.42857143;
+                vertical-align: top;
+                border-top: 1px solid #ccc
+            }
+/*            td{
+                border: 1px solid #ccc
+            }*/
+            .form-control-customs:focus {
+    border-color: #3c8dbc;
+    box-shadow: none;
+}
+.form-control-customs:focus {
+    /*border-color: #66afe9;*/
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+.form-control-customs {
+    height: 25px !important;
+}
+.form-control-customs {
+    border-radius: 0;
+    /*box-shadow: none;*/
+    /*border-color: #d2d6de;*/
+}
+.form-control-customs {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 0px 4px;
+    /*font-size: 14px;*/
+    line-height: 1.42857143;
+    color: #555;
+    /*background-color: #fff;*/
+    background-image: none;
+    border: 0px solid #ccc;
+    /*border-radius: 4px;*/
+    /*-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);*/
+    /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075);*/
+    /*-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;*/
+    /*-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;*/
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
         </style>
     </head>
 
@@ -398,20 +495,20 @@ and open the template in the editor.
                             <p>Alexander Pierce</p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a><br>
                         </div>
-                        
+
                     </div>
-                    
-     
+
+
                     <!-- search form -->
-<!--                    <form action="#" method="get" class="sidebar-form">
-                        <div class="input-group">
-                            <input type="text" name="q" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </form>-->
+                    <!--                    <form action="#" method="get" class="sidebar-form">
+                                            <div class="input-group">
+                                                <input type="text" name="q" class="form-control" placeholder="Search...">
+                                                <span class="input-group-btn">
+                                                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </form>-->
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
@@ -475,7 +572,7 @@ and open the template in the editor.
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="@"><i class="fa fa-industry"></i>Storage Loc
-                                <span class="pull-right-container">
+                                        <span class="pull-right-container">
                                             <i class="fa fa-angle-left pull-right"></i>
                                         </span>
                                     </a>
@@ -497,11 +594,11 @@ and open the template in the editor.
                                     </ul>
                                 </li>
                                 <li class=""><a href="@"><i class="fa fa-circle-o"></i>Item Category
-                                    <span class="pull-right-container">
+                                        <span class="pull-right-container">
                                             <i class="fa fa-angle-left pull-right"></i>
                                         </span>
                                     </a>
-                                  <ul class="treeview-menu">
+                                    <ul class="treeview-menu">
                                         <li><a href="../setting/itemCategory.php"><i class="fa fa-plus"></i>Category Entry Form</a></li>
                                         <li><a href="productCatMst.php"><i class="fa fa-plus"></i>Entry Form</a></li>
                                         <li class=""><a href="productCatMstList.php"><i class="fa fa-list"></i>List</a></li>
@@ -559,147 +656,147 @@ and open the template in the editor.
                                 <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
                             </ul>
                         </li>
-<!--                        <li>
-                            <a href="pages/widgets.html">
-                                <i class="fa fa-th"></i> <span>Widgets</span>
-                                <span class="pull-right-container">
-                                    <small class="label pull-right bg-green">new</small>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-pie-chart"></i>
-                                <span>Charts</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-                                <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-                                <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                                <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-laptop"></i>
-                                <span>UI Elements</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                                <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                                <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                                <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                                <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-edit"></i> <span>Forms</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                                <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                                <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-table"></i> <span>Tables</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                                <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="pages/calendar.html">
-                                <i class="fa fa-calendar"></i> <span>Calendar</span>
-                                <span class="pull-right-container">
-                                    <small class="label pull-right bg-red">3</small>
-                                    <small class="label pull-right bg-blue">17</small>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages/mailbox/mailbox.html">
-                                <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                                <span class="pull-right-container">
-                                    <small class="label pull-right bg-yellow">12</small>
-                                    <small class="label pull-right bg-green">16</small>
-                                    <small class="label pull-right bg-red">5</small>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-folder"></i> <span>Examples</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-                                <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-                                <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-                                <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                                <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-                                <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-                                <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-                                <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-                                <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-share"></i> <span>Multilevel</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-                                <li>
-                                    <a href="#"><i class="fa fa-circle-o"></i> Level One
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                                        <li>
-                                            <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                                                <span class="pull-right-container">
-                                                    <i class="fa fa-angle-left pull-right"></i>
-                                                </span>
-                                            </a>
-                                            <ul class="treeview-menu">
-                                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-                        <li class="header">LABELS</li>
-                        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-                        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-                        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>-->
+                        <!--                        <li>
+                                                    <a href="pages/widgets.html">
+                                                        <i class="fa fa-th"></i> <span>Widgets</span>
+                                                        <span class="pull-right-container">
+                                                            <small class="label pull-right bg-green">new</small>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li class="treeview">
+                                                    <a href="#">
+                                                        <i class="fa fa-pie-chart"></i>
+                                                        <span>Charts</span>
+                                                        <span class="pull-right-container">
+                                                            <i class="fa fa-angle-left pull-right"></i>
+                                                        </span>
+                                                    </a>
+                                                    <ul class="treeview-menu">
+                                                        <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+                                                        <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+                                                        <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
+                                                        <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="treeview">
+                                                    <a href="#">
+                                                        <i class="fa fa-laptop"></i>
+                                                        <span>UI Elements</span>
+                                                        <span class="pull-right-container">
+                                                            <i class="fa fa-angle-left pull-right"></i>
+                                                        </span>
+                                                    </a>
+                                                    <ul class="treeview-menu">
+                                                        <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
+                                                        <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
+                                                        <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
+                                                        <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
+                                                        <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
+                                                        <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="treeview">
+                                                    <a href="#">
+                                                        <i class="fa fa-edit"></i> <span>Forms</span>
+                                                        <span class="pull-right-container">
+                                                            <i class="fa fa-angle-left pull-right"></i>
+                                                        </span>
+                                                    </a>
+                                                    <ul class="treeview-menu">
+                                                        <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+                                                        <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
+                                                        <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="treeview">
+                                                    <a href="#">
+                                                        <i class="fa fa-table"></i> <span>Tables</span>
+                                                        <span class="pull-right-container">
+                                                            <i class="fa fa-angle-left pull-right"></i>
+                                                        </span>
+                                                    </a>
+                                                    <ul class="treeview-menu">
+                                                        <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
+                                                        <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="pages/calendar.html">
+                                                        <i class="fa fa-calendar"></i> <span>Calendar</span>
+                                                        <span class="pull-right-container">
+                                                            <small class="label pull-right bg-red">3</small>
+                                                            <small class="label pull-right bg-blue">17</small>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="pages/mailbox/mailbox.html">
+                                                        <i class="fa fa-envelope"></i> <span>Mailbox</span>
+                                                        <span class="pull-right-container">
+                                                            <small class="label pull-right bg-yellow">12</small>
+                                                            <small class="label pull-right bg-green">16</small>
+                                                            <small class="label pull-right bg-red">5</small>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li class="treeview">
+                                                    <a href="#">
+                                                        <i class="fa fa-folder"></i> <span>Examples</span>
+                                                        <span class="pull-right-container">
+                                                            <i class="fa fa-angle-left pull-right"></i>
+                                                        </span>
+                                                    </a>
+                                                    <ul class="treeview-menu">
+                                                        <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
+                                                        <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
+                                                        <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
+                                                        <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
+                                                        <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
+                                                        <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
+                                                        <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
+                                                        <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
+                                                        <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="treeview">
+                                                    <a href="#">
+                                                        <i class="fa fa-share"></i> <span>Multilevel</span>
+                                                        <span class="pull-right-container">
+                                                            <i class="fa fa-angle-left pull-right"></i>
+                                                        </span>
+                                                    </a>
+                                                    <ul class="treeview-menu">
+                                                        <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                                                        <li>
+                                                            <a href="#"><i class="fa fa-circle-o"></i> Level One
+                                                                <span class="pull-right-container">
+                                                                    <i class="fa fa-angle-left pull-right"></i>
+                                                                </span>
+                                                            </a>
+                                                            <ul class="treeview-menu">
+                                                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                                                                <li>
+                                                                    <a href="#"><i class="fa fa-circle-o"></i> Level Two
+                                                                        <span class="pull-right-container">
+                                                                            <i class="fa fa-angle-left pull-right"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                    <ul class="treeview-menu">
+                                                                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                                                                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+                                                <li class="header">LABELS</li>
+                                                <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+                                                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+                                                <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>-->
                     </ul>
                 </section>
                 <!-- /.sidebar -->
