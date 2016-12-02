@@ -26,7 +26,7 @@ include '../headerMenu.php';
                                 Product Category Title
                             </label>
                             <div class="col-md-6">
-                                <input type="text" name="productCatTitle" id="productCatTitle" value="" class="form-control">
+                                <input type="text" name="productCatTitle" id="productCatTitle" value="" class="form-control-customs">
                             </div>
                         </div>                              
                     </div>
@@ -36,7 +36,7 @@ include '../headerMenu.php';
                                 Product Category Keyword
                             </label>
                             <div class="col-md-6">
-                                <input type="text" name="productCatKeyword" id="productCatKeyword" value="" class="form-control">
+                                <input type="text" name="productCatKeyword" id="productCatKeyword" value="" class="form-control-customs">
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ include '../headerMenu.php';
                                             </select>
                                         </td>
                                         <td>
-                                            <input type="text" name='pName[]' id="pName_0"  class="form-control"/>
+                                            <input type="text" name='pName[]' id="pName_0"  class="form-control-customs"/>
                                         </td>
                                         <td>
                                             <textarea name='pDescription[]' col="1" rows="1" id="pDescription_0" class="borderColor"></textarea>
@@ -105,9 +105,9 @@ include '../headerMenu.php';
                                                                        class="fileName" onchange="getFileName(this.id)">
                                                             </span>
                                                         </span>
-                                                        <input type="text" class="form-control tf" readonly="readonly" id="picName_0"
+                                                        <input type="text" class="form-control-customs tf" readonly="readonly" id="picName_0"
                                                                name="productLogo[0]"
-                                                               placeholder ="Browse your file" class="form-control input-sm">
+                                                               placeholder ="Browse your file" class="form-control-customs input-sm">
 
                                                     </div>
                                                 </div>

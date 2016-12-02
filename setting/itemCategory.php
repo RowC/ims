@@ -22,7 +22,7 @@ include '../headerMenu.php';
                         <div class="col-sm-6">
                             <div class="input-group">
                                 <input type="text" name="importPermitNo" id="importPermitNo"
-                                       placeholder="Please enter location code" class="form-control">
+                                       placeholder="Please enter location code" class="form-control-customs">
                                 <span class="input-group-btn">
                                     <button class="btn btn-info btn-flat" id="ipSrcBtn" type="button"><i class="fa fa-search"></i>Search
                                     </button>

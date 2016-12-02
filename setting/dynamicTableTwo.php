@@ -29,8 +29,8 @@ include '../headerMenu.php';
                         ?>
                         <div class="row">
                             <div class=" col-md-2">
-                                <input type="hidden" name="productCatMstId" id="productCatid" value="<?php echo $rowMst['id']; ?>" class="form-control">                   
-                                <input type="hidden" name="productCatMst" id="productCatid" value="<?php echo $rowMst['product_cat_mst_id']; ?>" class="form-control">                   
+                                <input type="hidden" name="productCatMstId" id="productCatid" value="<?php echo $rowMst['id']; ?>" class="form-control-customs">                   
+                                <input type="hidden" name="productCatMst" id="productCatid" value="<?php echo $rowMst['product_cat_mst_id']; ?>" class="form-control-customs">                   
                             </div>
                         </div>
                         <div class="row">
@@ -41,7 +41,7 @@ include '../headerMenu.php';
                                 </label>
                                 <div class="col-md-4">
 
-                                    <input type="text" name="productCatTitle" id="productCatTitle" value="<?php echo $rowMst['category_title']; ?>" class="form-control">
+                                    <input type="text" name="productCatTitle" id="productCatTitle" value="<?php echo $rowMst['category_title']; ?>" class="form-control-customs">
                                 </div>
                             </div>                              
                         </div>
@@ -51,20 +51,20 @@ include '../headerMenu.php';
                                     Product Category Keyword
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" name="productCatKeyword" id="productCatKeyword" value="<?php echo $rowMst['category_keyword']; ?>" class="form-control">
+                                    <input type="text" name="productCatKeyword" id="productCatKeyword" value="<?php echo $rowMst['category_keyword']; ?>" class="form-control-customs">
                                 </div>
                             </div>
                         </div>
                     <?php } else {
                         ?>
-                        <input type="hidden" name="productCatMstId" id="productCatid" value="" class="form-control">
+                        <input type="hidden" name="productCatMstId" id="productCatid" value="" class="form-control-customs">
                         <div class="row">
                             <div class="form-group">
                                 <label class="col-md-3 control-label">
                                     Product Category Title
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" name="productCatTitle" id="productCatTitle" value="" class="form-control">
+                                    <input type="text" name="productCatTitle" id="productCatTitle" value="" class="form-control-customs">
                                 </div>
                             </div>                              
                         </div>
@@ -74,7 +74,7 @@ include '../headerMenu.php';
                                     Product Category Keyword
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" name="productCatKeyword" id="productCatKeyword" value="" class="form-control">
+                                    <input type="text" name="productCatKeyword" id="productCatKeyword" value="" class="form-control-customs">
                                 </div>
                             </div>
                         </div>
@@ -128,9 +128,9 @@ include '../headerMenu.php';
                                         </select>
                                     </td>
                                     <td>
-                                         <input type="hidden" name='pName[]' id="pName_<?php echo $i ?>"  class="form-control" value=""/>
-                                        <input type="hidden" name='dtlId<?php echo $i ?>' id="id_<?php echo $i ?>"  class="form-control" value="<?php echo $rowDtl['id']; ?>"/>
-                                        <input type="text" name='pName<?php echo $i ?>' id="pName_<?php echo $i ?>"  class="form-control" value="<?php echo $rowDtl['product_name']; ?>"/>
+                                         <input type="hidden" name='pName[]' id="pName_<?php echo $i ?>"  class="form-control-customs" value=""/>
+                                        <input type="hidden" name='dtlId<?php echo $i ?>' id="id_<?php echo $i ?>"  class="form-control-customs" value="<?php echo $rowDtl['id']; ?>"/>
+                                        <input type="text" name='pName<?php echo $i ?>' id="pName_<?php echo $i ?>"  class="form-control-customs" value="<?php echo $rowDtl['product_name']; ?>"/>
                                     </td>
                                     <td>
                                         <textarea name='pDescription<?php echo $i ?>' cols="50" rows="1" id="pDescription_<?php echo $i ?>" class="borderColor"><?php echo $rowDtl['product_description']; ?></textarea>
@@ -154,9 +154,9 @@ include '../headerMenu.php';
                                                                    class="fileName" onchange="changeFileName(this.id)">
                                                         </span>
                                                     </span>
-                                                    <input type="text" class="form-control tf" readonly="readonly" id="picName_<?php echo $i ?>"
+                                                    <input type="text" class="form-control-customs tf" readonly="readonly" id="picName_<?php echo $i ?>"
                                                            name="productLogo<?php echo $i ?>"
-                                                           placeholder ="Browse your file" class="form-control input-sm" value="<?php echo $rowDtl['product_logo_nm']; ?>">
+                                                           placeholder ="Browse your file" class="form-control-customs input-sm" value="<?php echo $rowDtl['product_logo_nm']; ?>">
 
                                                 </div>
                                             </div>
@@ -182,7 +182,7 @@ include '../headerMenu.php';
                                     </select>
                                 </td>
                                 <td>
-                                    <input type="text" name='pName[]' id="pName_0"  class="form-control" value=""/>
+                                    <input type="text" name='pName[]' id="pName_0"  class="form-control-customs" value=""/>
                                 </td>
                                 <td>
                                     <textarea name='pDescription[]' cols="50" rows="1" id="pDescription_0" class="borderColor"></textarea>
@@ -206,9 +206,9 @@ include '../headerMenu.php';
                                                                class="fileName" onchange="changeFileName(this.id)">
                                                     </span>
                                                 </span>
-                                                <input type="text" class="form-control tf" readonly="readonly" id="picName_0"
+                                                <input type="text" class="form-control-customs tf" readonly="readonly" id="picName_0"
                                                        name="productLogo[0]"
-                                                       placeholder ="Browse your file" class="form-control input-sm">
+                                                       placeholder ="Browse your file" class="form-control-customs input-sm">
 
                                             </div>
                                         </div>

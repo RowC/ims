@@ -3,9 +3,9 @@ include '../headerMenu.php';
 ?>
 <div class="content-wrapper">   
     <section class="content-header">
-        <h1>
+        <h3>
             Inventory Location
-        </h1>
+        </h3>
         <ol class="breadcrumb">
             <li><a href="../index.php"><i class="fa fa-home"></i> Home</a></li>
             <li><a href="storageLocList.php"><i class="fa fa-reorder"></i>List</a></li>
@@ -14,100 +14,87 @@ include '../headerMenu.php';
     </section>
     <!-- Main content -->
     <section class="content">
-        <div class="box info">
-            <div class="box-header">
-                <form>
-                    <div class="form-group">
-                        <div class="col-sm-3"></div>
-
-                        <div class="col-sm-6">
-                            <div class="input-group">
-                                <input type="text" name="importPermitNo" id="importPermitNo"
-                                       placeholder="Please enter location code" class="form-control">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-info btn-flat" id="ipSrcBtn" type="button"><i class="fa fa-search"></i>Search
-                                    </button>
-                                </span>
-                            </div><!-- /input-group -->
-
-                        </div>
-
-                        <div class="col-sm-3"></div>
-                    </div>
-                                    <!--<label>Location:</label><input type="text" name="" value="">-->
+         <div class="boxCustom">
+             <div class="box-body">
+        <div class="col-md-6">
+                <form class="form-horizontal">                      
+                            <div class="form-group">
+                                <label class="col-md-3">Location Code:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="invLoc" class="form-control-customs">
+                            </div>   
+                            </div> 
+                              <div class="form-group">
+                            <label class="col-md-3">Location Name:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="invName" class="form-control-customs">
+                            </div>
+                              </div>
+                              <div class="form-group">
+                            <label class="col-md-3">Address:</label>
+                            <div class="col-md-9">
+                                <textarea cols="20" rows="5" type="text" name="address" class="form-control-customs input-sm"></textarea>
+                            </div>
+                              </div>
+                              <div class="form-group">
+                            <label class="col-md-3">Phone:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="phone" class="form-control-customs">
+                            </div>
+                              </div>
+                              <div class="form-group">
+                            <label class="col-md-3">Email:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="email" class="form-control-customs">
+                            </div>
+                              </div>  <button type="button" name="" value="" class="btnCustom btn-success">Save <i class="fa fa-save"></i></button>
+                        <button type="reset" name="" value="" class="btnCustom btn-warning">Reset <i class="fa fa-refresh"></i></button>
+                    <!--</div>-->
                 </form>
-            </div>
-            <div class="box-body">
-                <table class="table table-bordered table-striped table-hover th-center">
-                    <thead class="bg-orange">
-                        <tr>
-                            <th>Location Code</th>
-                            <th>Location Name</th>
-                            <th> Address</th>
-                            <th>Phone</th>
-                            <th>Secondary Name</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
+            </div>       
+             <div class="col-md-6" >
+                 
+                 <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input type="text" name="importPermitNo" id="importPermitNo"
+                                           placeholder="Please enter location code" class="form-control-customs">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-info btn-flat" id="ipSrcBtn" type="button"><i class="fa fa-search"></i>Search
+                                        </button>
+                                    </span>
+                                </div> <!--input-group -->
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table table-bordered table-striped table-hover th-center">
+                        <thead class="bg-orange">
+                            <tr>
+                                <th>Location Code</th>
+                                <th> Address</th>
+                                <th>Phone</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
 
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <hr>
-        <div class="box" style="margin-left: 20%;width: 60%">
-            <form>
-                <div class="box-header">Inv Loc Entry Form</div>
-                <div class="box-body">
-                    <table style="background-color: #bbb; width: 100%" class="table-bordered  table-condensed display nowrap th-center">
-                        <tr>
-                            <th style="width: 28%">Location Code:</th>
-                            <td><input type="text" name="invLoc" class="input-control"></td>
-                        </tr>                    
-                        <tr>
-                            <th>Location Name:</th>
-                            <td><input type="text" name="invName" class="input-control"></td>
-                        </tr>                  
-                        <tr>
-                            <th>Address:</th>
-                            <td><textarea type="text" name="address" class="textArea-control"></textarea></td>
-                        </tr>                   
-                        <tr>
-                            <th>Phone:</th>
-                            <td><input type="text" name="phone" class="input-control"></td>
-                        </tr>  
-                        <tr>
-                            <th>Secondary Name:</th>
-                            <td><input type="text" name="secondaryName" class="input-control"></td>
-                        </tr>  
-                        <tr>
-                            <th>Edit:</th>
-                            <td><input type="text" name="secondaryName" class="input-control"></td>
-                        </tr>  
-                        <tr>
-                            <th>Email:</th>
-                            <td><input type="text" name="secondaryName" class="input-control"></td>
-                        </tr>  
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
                     </table>
-                </div>
-                <div class="box-footer">
-                    <input type="button" name="save_product" value="Add New" class="btn btn-success" onclick="sendFormData()">
-                    <button type="reset" name="" value="" class="btn btn-warning">Reset <i class="fa fa-refresh"></i></button>
-                </div>
-            </form>
+                <!--</div>-->
+            </div>
         </div>
+</div>
+
     </section>
 </div>
 <?php

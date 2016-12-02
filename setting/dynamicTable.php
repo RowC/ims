@@ -20,7 +20,7 @@ include '../headerMenu.php';
             <div class="box-body">
                 <p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
 
-                <table id="myTable" class="table table-bordered table-striped">
+                <table id="myTable" class="table table-bordered  table-striped">
                     <thead class="bg-maroon-gradient">
                         <tr>
                             <th>Item</th>
@@ -33,37 +33,38 @@ include '../headerMenu.php';
                     </thead>
                     <tbody>
                         <tr class="dRow">
-                            <td>
-                                <select id="ietm_0" name="item[0]" class="form-control">
+                            <td style="border: 1px solid #ccc">                                
+                                <select id="ietm_0" name="item[0]" class="form-control-customs">
                                     <option value="">Select One</option>
                                     <option value="1">Item 1</option>
                                     <option value="2">Item 2</option>
                                     <option value="3">Item 3</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" name='pName[]' id="pName_0"  class="form-control"/>
+                            <td style="border: 1px solid #ccc">
+                                <input type="text" name='pName[]' id="pName_0"  class="form-control-customs"/>
                             </td>
-                            <td>
-                                <textarea name='pDescription[]' col="1" rows="1" id="pDescription_0" class="form-control"></textarea>
+                            <td style="border: 1px solid #ccc">
+                                <textarea name='pDescription[]' col="1" rows="1" id="pDescription_0" class="form-control-customs"></textarea>
                             </td>
-                            <td>
+                            <td style="border: 1px solid #ccc">
                                 <input type="checkbox" name='activeList[0]' id="isActive_0" class="checkedVal" value='1'/>
                             </td>
-                            <td>
+                            <td style="border: 1px solid #ccc">
                                 <div class="form-group">                   
                                     <div class="col-lg-10 col-xs-10">
                                         <div class="input-group">
                                             <span class="input-group-btn">
-                                                <span class="btn btn-info btn-file">
-                                                    Browse...
+                                                <span class="btn  btn-file form-control-customs">
+                                                <!--<span class="btnCustom">-->
+                                                    <i class="fa fa-paperclip"></i>
                                                     <input type="file" id="picNames_0" name="productLogo[0]"
                                                            class="fileName" onchange="getFileName(this.id)">
                                                 </span>
                                             </span>
-                                            <input type="text" class="form-control tf" readonly="readonly" id="picName_0"
+                                            <input type="text" class="form-control-customs tf" readonly="readonly" id="picName_0"
                                                    name="productLogo[0]"
-                                                   placeholder ="Browse your file" class="form-control input-sm">
+                                                   placeholder ="Browse your file" class="form-control-customs input-sm">
 
                                         </div>
                                     </div>

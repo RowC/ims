@@ -25,7 +25,7 @@ include '../headerMenu.php';
                         <label class="required">
                             Storage Name
                         </label>
-                        <input type="text" name="name" maxlength="100" required="required" value="" class="form-control"/>
+                        <input type="text" name="name" maxlength="100" required="required" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -34,7 +34,7 @@ include '../headerMenu.php';
                         <label for="zoneCode" class="required">
                             Storage Code
                         </label>
-                        <input type="text" name="zoneCode" required="required" value="" class="form-control"/>
+                        <input type="text" name="zoneCode" required="required" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@ include '../headerMenu.php';
                         <label for="zoneNumber" class="required">
                             Storage Number
                         </label>
-                        <input type="number" name="zoneNumber" required="required" value="" class="form-control"/>
+                        <input type="number" name="zoneNumber" required="required" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@ include '../headerMenu.php';
                         <label for="address" class="control-label">
                             Address
                         </label>
-                        <input type="text" name="address" maxlength="100" value="" class="form-control"/>
+                        <input type="text" name="address" maxlength="100" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@ include '../headerMenu.php';
                         <label for="phoneNo" class="control-label">
                             Phone No
                         </label>
-                        <input type="text" name="phoneNo" maxlength="30" value="" class="form-control"/>
+                        <input type="text" name="phoneNo" maxlength="30" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@ include '../headerMenu.php';
                         <label for="medicalPhoneNo" class="control-label">
                             Medical Phone No
                         </label>
-                        <input type="text" name="medicalPhoneNo" maxlength="14" value="" class="form-control"/>
+                        <input type="text" name="medicalPhoneNo" maxlength="14" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -79,7 +79,7 @@ include '../headerMenu.php';
                         <label for="fireServicePhoneNo" class="control-label">
                             Fire Service Phone No
                         </label>
-                        <input type="text" name="fireServicePhoneNo" maxlength="14" value="" class="form-control"/>
+                        <input type="text" name="fireServicePhoneNo" maxlength="14" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@ include '../headerMenu.php';
                         <label for="faxNo" class="control-label">
                             Fax No
                         </label>
-                        <input type="text" name="faxNo" value="" class="form-control"/>
+                        <input type="text" name="faxNo" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@ include '../headerMenu.php';
                         <label for="emailAddress" class="control-label">
                             Email Address
                         </label>
-                            <input type="email" name="emailAddress" value="" class="form-control"/>
+                            <input type="email" name="emailAddress" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -106,7 +106,7 @@ include '../headerMenu.php';
                         <label for="website" class="control-label">
                             Website
                         </label>
-                        <input type="text" name="website" value="" class="form-control"/>
+                        <input type="text" name="website" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -115,7 +115,7 @@ include '../headerMenu.php';
                         <label for="shortName" class="control-label">
                             Sort Name
                         </label>
-                        <input type="text" name="shortName" maxlength="20" value="" class="form-control"/>
+                        <input type="text" name="shortName" maxlength="20" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -124,7 +124,7 @@ include '../headerMenu.php';
                         <label for="sortOrder" class="control-label">
                             Sort Order
                         </label>
-                        <input type="text" name="sortOrder" min="0" value="" class="form-control"/>
+                        <input type="text" name="sortOrder" min="0" value="" class="form-control-customs"/>
                     </div>
                 </div>
 
@@ -142,7 +142,7 @@ include '../headerMenu.php';
                         <label for="remarks" class="control-label">
                             Remarks
                         </label>
-                        <textarea name="remarks" cols="40" rows="10" maxlength="500" value="" class="form-control"></textarea>
+                        <textarea name="remarks" cols="40" rows="10" maxlength="500" value="" class="form-control-customs"></textarea>
                     </div>
                 </div>
             </div>
