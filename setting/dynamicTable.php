@@ -32,6 +32,7 @@ include '../headerMenu.php';
                         </tr>
                     </thead>
                     <tbody>
+                        <!--<tr class="dRow" style="border: 1px solid #ccc">-->
                         <tr class="dRow">
                             <td style="border: 1px solid #ccc">                                
                                 <select id="ietm_0" name="item[0]" class="form-control-customs">
@@ -70,7 +71,7 @@ include '../headerMenu.php';
                                     </div>
                                 </div>
                             </td>
-                            <td>
+                            <td style="border: 1px solid #ccc">
                                 <span onload="dlt(this.id);" id = 'deleteRow_0' class = 'dlt btn' onclick="removeDetail('dRow', this)" disabled=""><i class = 'fa fa-times' style = 'color:red;font-size:20px'></i></span>
                             </td>
                         </tr> 
