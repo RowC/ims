@@ -60,6 +60,11 @@ and open the template in the editor.
             body{
                 font-family: Tahoma
             }
+            body span{
+                font-family: Tahoma;
+                font-size: 12px;
+                font-weight: normal
+            }
             .content-header > h3 {
     margin: 0;
     font-size: 20px;
